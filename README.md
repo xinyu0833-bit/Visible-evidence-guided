@@ -135,8 +135,7 @@ python eval_paired_predictions_paper_documented.py \
 ### 4.1 G-PSNR / H-PSNR
 
 RGB 像素范围为 `[0,1]`。G-PSNR 在全图计算；H-PSNR 仅在缺失区域计算。
-
-$$
+```math
 \mathrm{MSE}_H =
 \frac{\sum_p H(p)\sum_{c=1}^{3}(x_c(p)-\hat{x}_c(p))^2}
 {3\sum_p H(p)},
@@ -144,8 +143,7 @@ $$
 \mathrm{H\!-\!PSNR}
 =
 10\log_{10}\frac{1}{\mathrm{MSE}_H}.
-$$
-
+```
 ### 4.2 G-SSIM / H-SSIM
 
 三个 RGB 通道分别调用：
@@ -163,22 +161,18 @@ structural_similarity(
 ```
 
 三个局部 SSIM 图取平均：
-
-$$
+```math
 \bar{S}(p)
 =
 \frac{S_R(p)+S_G(p)+S_B(p)}{3}.
-$$
-
+```
 H-SSIM：
-
-$$
+```math
 \mathrm{H\!-\!SSIM}
 =
 \frac{\sum_p H(p)\bar{S}(p)}
 {\sum_p H(p)}.
-$$
-
+```
 G-SSIM 为三个通道全图 SSIM 标量的平均。
 
 实现文档：<https://scikit-image.org/docs/stable/api/skimage.metrics.html#skimage.metrics.structural_similarity>
@@ -196,13 +190,11 @@ lpips.LPIPS(net="alex")
 ### 4.4 KB-F1
 
 已知侧评价边界带：
-
-$$
+```math
 B_{\mathrm{eval}}
 =
-\mathrm{Dilate}_{5}(H)-H.
-$$
-
+\operatorname{Dilate}_{5}(H)-H.
+```
 设置：
 
 - Canny 阈值：100 / 200
