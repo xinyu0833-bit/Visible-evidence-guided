@@ -193,7 +193,7 @@ lpips.LPIPS(net="alex")
 ```math
 B_{\mathrm{eval}}
 =
-\operatorname{Dilate}_{5}(H)-H.
+\mathrm{Dilate}_{5}(H)-H.
 ```
 设置：
 
