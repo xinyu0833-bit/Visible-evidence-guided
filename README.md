@@ -15,17 +15,19 @@ cd Visible-evidence-guided
 
 ## 1. 方法与参数更新范围
 
+> **GitHub 公式显示说明：** 本文档的独立公式统一使用 `$$ ... $$`，避免 `\[ ... \]` 在部分 GitHub 页面中按普通文本显示。
+
 主干使用官方 StrDiffusion 的纹理和结构去噪网络，保留其源于 IR-SDE 的均值回归随机过程。主 ConditionalUNet 接收六通道 `Concat(x_t - μ, μ)`，输出三通道反向状态估计；基础宽度为 64，深度为 4。结构条件为掩膜输入的灰度和 Canny 边缘拼接。
 
-\[
+$$
 \mu=M\odot x_0,\qquad H=1-M,
-\]
-\[
+$$
+$$
 \hat x_{t-1}
 =F_{\theta_0,\phi}\bigl(\operatorname{Concat}(x_t-\mu,\mu),t,S,C_p,M\bigr).
-\]
+$$
 
-`M=1` 表示已知像素，`H=1` 表示缺失像素。`\theta_0` 是冻结参数，`\phi` **只包含 Prompt Adapter 参数**。
+$M=1$ 表示已知像素，$H=1$ 表示缺失像素。$\theta_0$ 是冻结参数，$\phi$ **只包含 Prompt Adapter 参数**。
 
 | 部分 | 状态与作用 |
 |---|---|
@@ -39,9 +41,9 @@ Prompt Adapter 将 FiLM 与 token 级交叉注意力产生的分支融合为尺�
 
 原有监督形式保持为：
 
-\[
+$$
 \mathcal L=\mathcal L_{\rm hole}+2\mathcal L_{\rm boundary}.
-\]
+$$
 
 监督对象是反向状态估计与解析反向目标的差异，不在本说明中改写为另一种通用 DDPM 噪声预测目标。路由核尺寸 `k_r`、监督核尺寸 `k_sup` 与评价核尺寸 `k_eval` 分开记录；核尺寸不等同于相同数值的边界带厚度。
 
@@ -75,7 +77,7 @@ PGRDiff 项目 README 提供 muralv2 入口及 `muralv2/images`、`muralv2/masks
 
 ## 3. 提示与控制实验的含义
 
-最终提示采用 `Content and style`、`Degradation`、`Restoration constraint` 三字段；精确损伤几何由二值掩膜提供。描述只依据掩膜后可见证据，不访问缺失区域目标像素。提示随固定对齐记录保存，避免图像、增强掩膜与文本相互错配。
+最终提示采用 `Content and style`、`Degradation`、`Restoration constraint` 三字段；其中 `Degradation` 仅描述可观察退化状态及损伤邻近区域的可见边界/色彩过渡特征，精确损伤几何始终由二值掩膜提供。描述只依据掩膜后可见证据，不访问缺失区域目标像素。提示随固定对齐记录保存，避免图像、增强掩膜与文本相互错配。
 
 | 条件 | 实际控制内容 | 不能由此推断 |
 |---|---|---|
@@ -179,12 +181,12 @@ python eval_paired_predictions_paper_documented.py \
 
 在 `[0,1]` RGB 上计算均方误差。G-PSNR 对所有像素和通道平均；H-PSNR 对缺失位置与三个通道平均：
 
-\[
+$$
 \mathrm{MSE}_H =
 \frac{\sum_pH(p)\sum_{c=1}^{3}(x_c(p)-\hat x_c(p))^2}
 {3\sum_pH(p)},\qquad
 \mathrm{H\!-\!PSNR}=10\log_{10}(1/\mathrm{MSE}_H).
-\]
+$$
 
 零误差返回正无穷。
 
@@ -205,11 +207,11 @@ structural_similarity(
 
 即 7×7 均匀局部窗口，使用样本协方差。稳定常数由库默认提供，`K1=0.01`、`K2=0.03`。记三个完整局部 SSIM 图为 `S_R`、`S_G`、`S_B`：
 
-\[
+$$
 \bar S(p)=\frac{S_R(p)+S_G(p)+S_B(p)}{3},
 \qquad
 \mathrm{H\!-\!SSIM}=\frac{\sum_pH(p)\bar S(p)}{\sum_pH(p)}.
-\]
+$$
 
 代码最终执行：
 
@@ -261,7 +263,7 @@ G-SSIM 对库返回的三个通道标量取平均；该标量按库实现排除�
 
 完整实验复现还需要实际发布并彼此对应的：模型源码与训练/推理入口、原始冻结主干检查点、各随机种子的 Adapter 权重、固定图像—掩膜—提示记录、训练与评价配置、依赖版本，以及逐图统计。核验时应记录代码提交版本和文件校验值。
 
-本 README 不提供未经核验的 checkpoint 下载地址，也不将单独的评价脚本视为完整模型发布证明。公开访问范围以仓库实际文件为准。
+本 README 不提供未经核验的 checkpoint 下载地址，也不将单独的评价脚本视为完整模型发布证明。复现时应逐项核对当前仓库版本中实际存在的训练/推理入口、Adapter 权重、提示记录、图像—掩膜配对清单、配置与环境文件；未实际发布的资源不在本文档中声称为可用。
 
 ## 7. 致谢、引用与使用边界
 
