@@ -24,18 +24,14 @@ StrDiffusion 的主网络采用六通道输入与三通道预测；其结构网�
 
 **二值掩膜约定必须统一：`M=1` 为已知像素，`M=0` 为缺失像素。** 对参考图像 `x_0`，定义缺失区域和掩膜输入为：
 
-$$
+```math
 H=1-M,\qquad \mu=M\odot x_0.
-$$
-
+```
 结构条件仅由掩膜后的输入构造，不从被遮挡区域的参考像素生成：
 
-$$
-G_{\mu}=M\odot\Phi_{\mathrm{gray}}(\mu),\qquad
-E_{\mu}=M\odot\Phi_{\mathrm{edge}}(G_{\mu}),\qquad
-S=\mathrm{Concat}(G_{\mu},E_{\mu}).
-$$
-
+```math
+G_{\mu}=M\odot\Phi_{\mathrm{gray}}(\mu),\qquad E_{\mu}=M\odot\Phi_{\mathrm{edge}}(G_{\mu}),\qquad S=\mathrm{Concat}(G_{\mu},E_{\mu}).
+```
 论文中**路由、监督与评价**的边界核有不同作用，即使最终取值相同也不可混用：
 
 | 参数 | 作用 | 论文最终设置 |
@@ -46,57 +42,40 @@ $$
 
 路由侧边界通过一次方形核膨胀构造：
 
-$$
-B_{\mathrm{route}}^{(k_r)}
-=\mathrm{Dilate}_{k_r}(H)-H.
-$$
-
+```math
+B_{\mathrm{route}}^{(k_r)} =\mathrm{Dilate}_{k_r}(H)-H.
+```
 其中 `k_r` 为奇数大小的方形膨胀核；`k_r=1` 不额外产生 known-side boundary，因此只在缺失区内注入。将 hole 与边界图以**最近邻插值**缩放至第 `s` 个特征尺度：
 
-$$
-R_s^{(k_r)}(M)=
-\mathrm{clip}\left(
-\mathrm{Resize}_s(H)+
-\mathrm{Resize}_s\left(B_{\mathrm{route}}^{(k_r)}\right),
-0,1\right).
-$$
-
+```math
+R_s^{(k_r)}(M)= \mathrm{clip}\left( \mathrm{Resize}_s(H)+ \mathrm{Resize}_s\left(B_{\mathrm{route}}^{(k_r)}\right), 0,1\right).
+```
 残差注入为：
 
-$$
+```math
 h'_s=h_s+R_s^{(k_r)}(M)\odot r_p^{(s)}.
-$$
-
+```
 路由图仅控制 Prompt Adapter 生成的语义残差**直接注入的位置**；它不单独预测语义，也不意味着整个扩散网络对已知区域完全没有间接影响。
 
 ### 1.3 边界加权训练目标
 
 监督边界与路由边界分开定义：
 
-$$
-B_{\mathrm{sup}}=\mathrm{Dilate}_{k_{\mathrm{sup}}}(H)-H,
-\qquad k_{\mathrm{sup}}=5.
-$$
-
+```math
+B_{\mathrm{sup}}=\mathrm{Dilate}_{k_{\mathrm{sup}}}(H)-H, \qquad k_{\mathrm{sup}}=5.
+```
 在冻结 StrDiffusion 的情况下，仅更新 Prompt Adapter，使用下列目标：
 
-$$
-\mathcal{L}=\mathcal{L}_{\mathrm{hole}}+
-2\mathcal{L}_{\mathrm{boundary}}.
-$$
+```math
+\mathcal{L}=\mathcal{L}_{\mathrm{hole}}+ 2\mathcal{L}_{\mathrm{boundary}}.
+```
+```math
+\mathcal{L}_{\mathrm{hole}} = \frac{\|H \odot (\hat{x}_{t-1} - x^{*}_{t-1})\|_1}{\|H\|_1 + \epsilon}
+```
 
-$$
-\mathcal{L}_{\mathrm{hole}}
-=\frac{\left\lVert H\odot
-(\hat{x}_{t-1}-x^{*}_{t-1})\right\rVert_1}
-{\lVert H\rVert_1+\epsilon},
-\qquad
-\mathcal{L}_{\mathrm{boundary}}
-=\frac{\left\lVert B_{\mathrm{sup}}\odot
-(\hat{x}_{t-1}-x^{*}_{t-1})\right\rVert_1}
-{\lVert B_{\mathrm{sup}}\rVert_1+\epsilon}.
-$$
-
+```math
+\mathcal{L}_{\mathrm{boundary}} = \frac{\|B_{\mathrm{sup}} \odot (\hat{x}_{t-1} - x^{*}_{t-1})\|_1}{\|B_{\mathrm{sup}}\|_1 + \epsilon}
+```
 这里 `x*_{t-1}` 是 StrDiffusion 逆过程的解析监督目标，`\epsilon>0` 是防止除零的数值项；**边界加权损失是本文方法的组成部分，不是从原始 StrDiffusion 直接继承的损失**。
 
 ## 2. 可见证据提示与对照实验
@@ -133,10 +112,9 @@ Mask morphology: [coarse description of the observed mask geometry]
 
 冻结的 CLIP 将提示编码为：
 
-$$
+```math
 C_p=E_{\mathrm{text}}(P)\in\mathbb{R}^{B\times77\times768}.
-$$
-
+```
 Adapter 使用 token-level cross-attention 和 FiLM 调制，经过尺度专属投影生成 `r_p`；训练只调整 Adapter 的参数。
 
 ### 2.2 提示与参数量控制
@@ -216,15 +194,13 @@ Adapter 使用 token-level cross-attention 和 FiLM 调制，经过尺度专属�
 
 输入 RGB 数值范围为 `[0,1]`。G-PSNR 在完整图像上计算，H-PSNR 仅在 hole 位置计算：
 
-$$
-\mathrm{MSE}_{H}
-=\frac{\sum_p H(p)\sum_{c=1}^{3}
-(x_c(p)-\hat{x}_c(p))^2}{3\sum_p H(p)},
-\qquad
-\mathrm{H\!-\!PSNR}
-=10\log_{10}\frac{1}{\mathrm{MSE}_{H}}.
-$$
+```math
+\mathrm{MSE}_{H} = \frac{\sum_p H(p)\sum_{c=1}^{3} (x_c(p)-\hat{x}_c(p))^2}{3\sum_p H(p)}
+```
 
+```math
+\mathrm{H\!-\!PSNR} = 10\log_{10}\frac{1}{\mathrm{MSE}_{H}}
+```
 当误差为零时 PSNR 为正无穷；论文在汇总时只对有限结果求平均。
 
 ### 5.2 G-SSIM 和 H-SSIM
@@ -247,13 +223,13 @@ score, local_map = structural_similarity(
 
 使用默认的 `K1=0.01` 和 `K2=0.03`；三通道完整局部 SSIM 图先平均，再根据 hole map 选择**局部窗口中心位于缺失区**的像素：
 
-$$
-\bar{s}(p)=\frac{1}{3}\sum_{c=1}^{3}s_c(p),
-\qquad
-\mathrm{H\!-\!SSIM}
-=\frac{\sum_p H(p)\bar{s}(p)}{\sum_p H(p)}.
-$$
+```math
+\bar{s}(p) = \frac{1}{3}\sum_{c=1}^{3}s_c(p)
+```
 
+```math
+\mathrm{H\!-\!SSIM} = \frac{\sum_p H(p)\bar{s}(p)}{\sum_p H(p)}
+```
 注意：H-SSIM 的局部窗口可以包含缺失区周围的已知像素；它既不是只在 hole 内计算局部统计量，也不是裁剪 hole 外接框后计算 SSIM。G-SSIM 取各通道的全图 scalar SSIM 平均（各 scalar 排除图像外侧 3 像素边界）；H-SSIM 直接从完整 local map 选取 hole 中心，不另行去掉边界。
 
 ### 5.3 LPIPS
@@ -264,12 +240,9 @@ $$
 
 **评价边界与训练路由边界是不同概念：**
 
-$$
-B_{\mathrm{eval}}
-=\mathrm{Dilate}_{k_{\mathrm{eval}}}(H)-H,
-\qquad k_{\mathrm{eval}}=5.
-$$
-
+```math
+B_{\mathrm{eval}} =\mathrm{Dilate}_{k_{\mathrm{eval}}}(H)-H, \qquad k_{\mathrm{eval}}=5.
+```
 - 对完整 RGB 图先转 8-bit 灰度，再使用 Canny `100/200` 提取边缘。
 - 仅保留位于已知侧评价边界带 `B_eval` 的边缘像素。
 - 使用 OpenCV `DIST_L2` 距离变换，`maskSize=5`，匹配容差 `1` 像素。
