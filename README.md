@@ -175,107 +175,9 @@ Prompt Adapter 使用缺失区域损失和边界区域损失联合优化：
 | 其他单因素实验种子 | `1234` |
 | 计算设备 | NVIDIA RTX 4090（单卡） |
 
-### 3.2 比较方法
+## 4. 评价指标
 
-| 方法 | 模型来源及实验协议 |
-|---|---|
-| LaMa | 与本文方法匹配的 Dunhuang 训练协议 |
-| StrDiffusion (matched training) | 与本文方法匹配的 Dunhuang 训练协议 |
-| PGRDiff | 匹配 Dunhuang 训练协议；训练和测试均使用相同的 sample-specific prompts |
-| EdgeConnect | 作者发布权重 |
-| PowerPaint | 作者发布权重；官方提示生成与推理流程 |
-| RAD | 作者发布权重 |
-| LRDiff | 作者发布权重 |
-| MuralNet | 作者发布权重 |
-
-匹配训练协议统一开发数据、掩膜、输入分辨率、batch size、Adam 优化器、学习率计划及训练预算，同时保留各比较方法各自的网络结构和损失定义。组件消融中的配置 A 使用官方冻结 StrDiffusion 参考模型，与主结果表中的 `StrDiffusion (matched training)` 区分。
-
-## 4. 实验结果
-
-### 4.1 参考式评价
-
-**Dunhuang 独立测试集**
-
-| 方法 | G-PSNR ↑ | G-SSIM ↑ | LPIPS ↓ | H-PSNR ↑ | H-SSIM ↑ | KB-F1 ↑ |
-|---|---:|---:|---:|---:|---:|---:|
-| LaMa | 35.3000 | 0.9638 | 0.0163 | 24.9412 | 0.8098 | 0.9127 |
-| EdgeConnect | 26.3330 | 0.8127 | 0.2066 | 18.3583 | 0.4613 | 0.7031 |
-| PowerPaint | 26.6304 | 0.8674 | 0.1296 | 16.4454 | 0.4478 | 0.5708 |
-| RAD | 28.6152 | 0.9105 | 0.0580 | 17.8683 | 0.5507 | 0.7184 |
-| StrDiffusion (matched) | 31.6480 | 0.9231 | 0.0881 | 21.6717 | 0.6121 | 0.7474 |
-| LRDiff | 26.1759 | 0.8034 | 0.1115 | 19.8884 | 0.4889 | 0.5690 |
-| PGRDiff | 29.8391 | 0.8986 | 0.0852 | 20.5271 | 0.5736 | 0.7144 |
-| MuralNet | 26.6651 | 0.8633 | 0.1631 | 16.3470 | 0.4137 | 0.5644 |
-| **Ours (mean ± SD)** | **36.6212 ± 0.0391** | **0.9640 ± 0.0003** | 0.0433 ± 0.0004 | **27.0445 ± 0.0670** | **0.8284 ± 0.0017** | **0.9253 ± 0.0017** |
-
-**MuralDH 受控外部评价**
-
-| 方法 | G-PSNR ↑ | G-SSIM ↑ | LPIPS ↓ | H-PSNR ↑ | H-SSIM ↑ | KB-F1 ↑ |
-|---|---:|---:|---:|---:|---:|---:|
-| LaMa | 32.7210 | 0.9536 | 0.0432 | 16.5989 | 0.4020 | 0.8346 |
-| EdgeConnect | 31.0782 | 0.9494 | 0.0520 | 14.9426 | 0.3155 | 0.8433 |
-| PowerPaint | 31.2228 | 0.9446 | 0.0581 | 13.7244 | 0.3113 | 0.7024 |
-| RAD | 30.7437 | 0.9306 | 0.0737 | 15.1040 | 0.3575 | 0.7250 |
-| StrDiffusion (matched) | 28.5870 | 0.8951 | 0.0901 | 14.8823 | 0.3272 | 0.7243 |
-| LRDiff | 26.5090 | 0.8867 | 0.1076 | 14.5723 | 0.2789 | 0.6123 |
-| PGRDiff | 31.9051 | 0.9526 | 0.0562 | 16.1654 | 0.4218 | 0.8156 |
-| MuralNet | 30.2989 | 0.9488 | 0.0547 | 14.1768 | 0.3360 | 0.7474 |
-| **Ours (mean ± SD)** | **35.8066 ± 0.0595** | **0.9638 ± 0.0003** | **0.0375 ± 0.0005** | **18.6842 ± 0.0810** | **0.5538 ± 0.0023** | **0.8991 ± 0.0019** |
-
-Ours 的均值与标准差由三个独立随机种子得到。其余基线为表中协议下的报告结果。
-
-### 4.2 组件消融
-
-Dunhuang 测试集，配置 B–E 使用三个独立随机种子：
-
-| 配置 | Prompt Adapter | Boundary loss | Routing | G-PSNR ↑ |
-|---|---|---|---|---:|
-| A. Frozen StrDiffusion | 无 | 无 | 无 | 31.2662 |
-| B. Adapter only | 有 | 无 | Global | 35.4658 ± 0.0455 |
-| C. + Boundary loss | 有 | 有 | Global | 35.8755 ± 0.0400 |
-| D. Hole-only | 有 | 有 | Hole | 36.3543 ± 0.0360 |
-| E. Hole + boundary | 有 | 有 | Hole + boundary | **36.6212 ± 0.0391** |
-
-### 4.3 提示控制实验
-
-Dunhuang 测试集；固定权重推理与参数量匹配重训练实验均使用随机种子 `1234`：
-
-| 提示条件 | 固定权重 G-PSNR ↑ | 参数量匹配重训练 G-PSNR ↑ |
-|---|---:|---:|
-| Matched | **36.6177** | **36.6177** |
-| Partial omission | 36.3238 | 36.3526 |
-| Localized factual error | 36.1774 | 36.2413 |
-| Fixed generic | 35.9601 | 35.9957 |
-| Shuffled | 35.9446 | 35.9834 |
-| Zero-feature | 35.3279 | 35.1973 |
-
-100 条 Dunhuang 测试提示经过三名评价者独立审核：84 条为 Acceptable、14 条为 Minor issue、2 条为 Unacceptable；模板符合率为 100%。
-
-### 4.4 损伤模式评价
-
-muralv2 四类损伤子集的 H-PSNR：
-
-| 损伤类别 | 平均缺失比例 | Ours ↑ | LaMa ↑ | StrDiffusion ↑ |
-|---|---:|---:|---:|---:|
-| Crack | 12.85% | **25.8434** | 24.7371 | 20.2969 |
-| Fallen-off / irregular loss | 7.56% | **19.4688** | 19.3872 | 14.3920 |
-| Decorative-pattern damage | 14.33% | 24.3221 | **24.9091** | 19.3199 |
-| Interrupted contour | 5.04% | **24.6241** | 23.0646 | 19.9521 |
-
-### 4.5 领域专家盲评
-
-三名壁画保护或相关艺术分析领域评价者对 30 例 Dunhuang 测试案例进行盲评。采用 1–5 分量表，综合分数为结构保真度、艺术风格一致性与补全合理性三个维度的等权平均。
-
-| 方法 | Overall (mean ± SD) ↑ | 95% CI |
-|---|---:|---|
-| LaMa | 3.32 ± 0.54 | [3.12, 3.52] |
-| StrDiffusion (matched) | 3.79 ± 0.34 | [3.66, 3.92] |
-| MuralNet | 2.08 ± 0.92 | [1.74, 2.42] |
-| **Ours** | **4.14 ± 0.44** | **[3.98, 4.30]** |
-
-## 5. 评价指标
-
-### 5.1 G-PSNR 与 H-PSNR
+### 4.1 G-PSNR 与 H-PSNR
 
 将 RGB 图像归一化至 `[0,1]`。G-PSNR 基于完整图像计算，H-PSNR 基于缺失区域计算：
 
@@ -287,7 +189,7 @@ muralv2 四类损伤子集的 H-PSNR：
 \mathrm{H\!-\!PSNR}=10\log_{10}\frac{1}{\mathrm{MSE}_{H}}
 ```
 
-### 5.2 G-SSIM 与 H-SSIM
+### 4.2 G-SSIM 与 H-SSIM
 
 每个 RGB 通道分别使用 `skimage.metrics.structural_similarity` 计算 SSIM：
 
@@ -315,11 +217,11 @@ G-SSIM 为三个通道全图 SSIM 标量的平均；H-SSIM 使用完整局部 SS
 
 局部窗口的统计量按完整邻域计算；H-SSIM 仅通过 `H` 选择计入平均的窗口中心。G-SSIM 的标量结果不计入图像外侧三个像素的边界，H-SSIM 使用完整局部图。
 
-### 5.3 LPIPS
+### 4.3 LPIPS
 
 使用 AlexNet 特征的 `lpips.LPIPS(net="alex")`，在完整 RGB 图像上计算。输入从 `[0,1]` 映射到 `[-1,1]`。
 
-### 5.4 KB-F1
+### 4.4 KB-F1
 
 已知侧评价边界：
 
@@ -345,15 +247,15 @@ B_{\mathrm{eval}}=\mathrm{Dilate}_{k_{\mathrm{eval}}}(H)-H,\qquad k_{\mathrm{eva
 
 当 `P+R=0` 时，KB-F1 定义为 `0`。
 
-## 6. 参考式评价流程
+## 5. 参考式评价流程
 
-### 6.1 评价依赖
+### 5.1 评价依赖
 
 ```bash
 python -m pip install numpy pandas opencv-python scikit-image torch lpips
 ```
 
-### 6.2 文件组织
+### 5.2 文件组织
 
 ```text
 evaluation_inputs/
@@ -370,7 +272,7 @@ evaluation_inputs/
 
 预测图、参考图及掩膜通过标准化文件名配对。RGB 图像使用 OpenCV `INTER_AREA` 缩放至 `256 × 256`，掩膜使用 `INTER_NEAREST`。默认白色表示已知区域，即 `--mask-convention known_white`。
 
-### 6.3 Dunhuang 独立测试
+### 5.3 Dunhuang 独立测试
 
 ```bash
 python eval_paired_predictions_paper_documented.py \
@@ -389,7 +291,7 @@ python eval_paired_predictions_paper_documented.py \
   --edge-tolerance 1.0
 ```
 
-### 6.4 MuralDH 受控外部评价
+### 5.4 MuralDH 受控外部评价
 
 ```bash
 python eval_paired_predictions_paper_documented.py \
@@ -408,7 +310,7 @@ python eval_paired_predictions_paper_documented.py \
   --edge-tolerance 1.0
 ```
 
-### 6.5 评价输出
+### 5.5 评价输出
 
 | 文件 | 内容 |
 |---|---|
@@ -418,7 +320,7 @@ python eval_paired_predictions_paper_documented.py \
 
 评价脚本直接读取保存的预测结果，不对已知像素进行参考图像替换或额外颜色校正。指标先逐图计算，再对有限有效数值等权汇总。
 
-## 7. 数据与代码可用性
+## 6. 数据与代码可用性
 
 | 资源 | 地址 |
 |---|---|
@@ -429,7 +331,3 @@ python eval_paired_predictions_paper_documented.py \
 | muralv2 | [PGRDiff project](https://github.com/CZY-Code/PGRDiff) |
 
 研究使用的固定记录标识符、确定性提示、派生掩膜子集、YAML 配置、输出清单及指标汇总可向通讯作者合理请求。原始图像、掩膜与第三方权重的使用和再分发遵循相应数据与模型提供方的许可条件。
-
-## 8. 引用
-
-Yu, Y., Wei, X., Meng, J. & Liu, Z. *Visible-evidence-guided virtual completion of Dunhuang murals using mask-aware multimodal diffusion*. Manuscript.
