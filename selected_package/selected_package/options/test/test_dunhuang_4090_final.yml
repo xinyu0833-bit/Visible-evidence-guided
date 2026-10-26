@@ -1,0 +1,55 @@
+#### general settings
+name: test_dunhuang_ours_4090_final_latest
+suffix: ~  
+model: denoising
+distortion: derain
+gpu_ids: [0]
+
+sde:
+  max_sigma: 30
+  T: 100
+  schedule: cosine
+  eps: 0.005
+
+degradation:
+  # 👉 明确指向 DUNHUANG 的测试集掩码
+  mask_root: /root/autodl-tmp/data/mural/DUNHUANG/test/test_mask
+  
+#### datasets
+datasets:
+  test1:
+    name: DUNHUANG_Test
+    mode: GT
+    # 👉 明确指向 DUNHUANG 的测试集原图
+    dataroot_GT: /root/autodl-tmp/data/mural/DUNHUANG/test/test_GT
+    prompt_path: /root/autodl-tmp/data/mural/DUNHUANG/test/prompts_qwen_degradation_debug.json
+
+#### network structures
+network_G:
+  which_model_G: ConditionalUNet
+  setting:
+    in_nc: 3
+    out_nc: 3
+    nf: 64
+    depth: 4
+    
+network_Gs:
+  which_model_G: ConditionalUNets
+  setting:
+    in_nc: 1
+    out_nc: 1
+    nf: 64
+    depth: 4
+
+#### path
+path:
+  # 🚀 核心：指向你 4090 刚刚训练跑完的权重（latest_G 或者是 20000_G.pth）
+  # 请检查这段路径是否与你实际的 log 输出路径完全一致
+  pretrain_model_G: /root/autodl-tmp/StrDiffusion_Official/train/experiments/inpainting/StrDiffusion_Ours_Final_RTX4090/models/latest_G.pth
+  
+  # 官方结构权重与判别器权重 (保持不变)
+  pretrain_model_Gs: /root/autodl-tmp/models/psv/psv,T=100/s.pth
+  pretrain_model_D: /root/autodl-tmp/models/psv/psv,T=100/dis.pth
+  
+  # 🌟 必须为 false，允许加载新增的 prompt_adapter 参数
+  strict_load: false

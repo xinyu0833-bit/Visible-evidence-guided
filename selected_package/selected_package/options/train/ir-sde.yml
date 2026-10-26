@@ -1,0 +1,77 @@
+#### general settings
+name: ir-sde_prompt_guided # 建议改个名字区分原版
+use_tb_logger: true
+model: denoising
+distortion: derain
+gpu_ids: [0] # 🚀 修改点 1：单卡通常是 [0]，原来是 [2]
+
+sde:
+  max_sigma: 30
+  T: 100
+  schedule: cosine
+  eps: 0.005
+
+degradation:
+  mask_root: /root/autodl-tmp/data/mural/DUNHUANG/train/train_mask
+  
+#### datasets
+datasets:
+  train:
+    name: Train_Dataset
+    mode: GT
+    dataroot_GT: /root/autodl-tmp/data/mural/DUNHUANG/train/train_GT
+    prompt_path: /root/autodl-tmp/data/mural/DUNHUANG/train/prompts_dense.json
+    use_shuffle: true
+    n_workers: 4
+    batch_size: 8
+    GT_size: 256
+    use_flip: true
+    use_rot: true
+    color: RGB
+
+
+#### network structures
+network_G:
+  which_model_G: ConditionalUNet
+  setting:
+    in_nc: 3
+    out_nc: 3
+    nf: 64
+    depth: 4
+
+#### path
+path:
+  # 🚀 核心修改：指向 t.pth 绝对路径
+  pretrain_model_G: /root/autodl-tmp/models/psv/psv,T=100/t.pth
+  
+  # 🚀 必须改为 false！因为原版 t.pth 里没有你新增的 prompt_adapter 参数
+  # 设为 false 后，PyTorch 会加载能匹配上的 U-Net 主干，自动跳过找不到的 adapter 参数
+  strict_load: false 
+  resume_state: ~
+
+#### training settings: learning rate scheme, loss
+train:
+  optimizer: Adam
+  lr_G: !!float 1e-4  # 学习率保持 1e-4，对训练 Adapter 刚刚好
+  lr_scheme: MultiStepLR
+  beta1: 0.9
+  beta2: 0.99
+  # 🚀 修改点 4：适配微调的 Iterations。原版 800万步是预训练用的。微调通常 50,000 ~ 100,000 步即可收敛。
+  niter: 50000 
+  warmup_iter: -1  
+  # 🚀 对应修改学习率衰减的时机
+  lr_steps: [20000, 40000] 
+  lr_gamma: 0.5
+  eta_min: !!float 1e-7
+
+  # criterion
+  is_weighted: False
+  loss_type: l1
+  weight: 1.0
+  manual_seed: 0
+
+#### logger
+logger:
+  print_freq: 100
+  # 🚀 修改点 5：增加保存频率。微调时变化很快，建议每 2000 步保存一次。
+  save_checkpoint_freq: !!float 2e3

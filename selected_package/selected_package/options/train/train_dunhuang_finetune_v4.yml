@@ -1,0 +1,72 @@
+#### general settings
+name: StrDiffusion_SoftRouting_Boundary
+use_tb_logger: true
+model: denoising
+distortion: derain
+gpu_ids: [0]
+
+sde:
+  max_sigma: 30
+  T: 100
+  schedule: cosine
+  eps: 0.005
+
+degradation:
+  mask_root: /root/autodl-tmp/data/mural/DUNHUANG/train/train_mask
+
+#### datasets
+datasets:
+  train:
+    name: Train_Dataset
+    mode: GT
+    dataroot_GT: /root/autodl-tmp/data/mural/DUNHUANG/train/train_GT
+    prompt_path: /root/autodl-tmp/data/mural/DUNHUANG/train/prompts_qwen_degradation.json
+    use_shuffle: true
+    n_workers: 4
+    batch_size: 8 
+    GT_size: 256
+    use_flip: true
+    use_rot: true
+    color: RGB
+
+#### network structures
+network_G:
+  which_model_G: ConditionalUNet
+  setting:
+    in_nc: 3
+    out_nc: 3
+    nf: 64
+    depth: 4
+    
+network_Gs:
+  which_model_G: ConditionalUNets
+  setting:
+    in_nc: 1
+    out_nc: 1
+    nf: 64
+    depth: 4
+
+#### path
+path:
+  # ✨ 核心：指向我们刚备份出来的 5000 步底牌权重！
+  pretrain_model_G: /root/autodl-tmp/models/baseline_degprompt__5000.pth
+  pretrain_model_Gs: /root/autodl-tmp/models/psv/psv,T=100/s.pth 
+  strict_load: false 
+  resume_state: ~ 
+
+#### training settings
+train:
+  optimizer: Adam
+  loss_type: l1 
+  lr_G: !!float 1e-5 
+  lr_scheme: MultiStepLR
+  weight_decay_G: 0
+  beta1: 0.9
+  beta2: 0.999
+  # 这次我们在极高起点上微调，先跑 5000 步看看造化
+  niter: 5000 
+  warmup_iter: -1
+
+logger:
+  save_checkpoint_freq: !!float 2500 # 每 2500 步存一次档，方便及时测
+  print_freq: 50 # 频繁打印一点，观察 loss_bound 的下降情况

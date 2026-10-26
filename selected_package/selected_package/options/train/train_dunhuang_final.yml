@@ -1,0 +1,81 @@
+#### general settings
+name: StrDiffusion_Ours_Final_RTX4090
+use_tb_logger: true
+model: denoising
+distortion: derain
+gpu_ids: [0]
+manual_seed: 1234
+
+sde:
+  max_sigma: 30
+  T: 100
+  schedule: cosine
+  eps: 0.005
+
+degradation:
+  mask_root: /root/autodl-tmp/data/mural/DUNHUANG/train/train_mask
+
+#### datasets
+datasets:
+  train:
+    name: Train_Dataset
+    mode: GT
+    dataroot_GT: /root/autodl-tmp/data/mural/DUNHUANG/train/train_GT
+    prompt_path: /root/autodl-tmp/data/mural/DUNHUANG/train/prompts_qwen_degradation.json
+    use_shuffle: true
+    # 4090 通常搭配较好的 CPU，提高 worker 数量防止数据加载成为瓶颈
+    n_workers: 8 
+    # 🚀 4090 满血核心：大 Batch Size 极其有利于 SDE 分数场稳定
+    batch_size: 8 # 如果显存依然有余量（用 nvidia-smi 查看），可尝试极限的 24
+    GT_size: 256
+    use_flip: true
+    use_rot: true
+    color: RGB
+
+#### network structures
+network_G:
+  which_model_G: ConditionalUNet
+  setting:
+    in_nc: 3
+    out_nc: 3
+    nf: 64
+    depth: 4
+
+network_Gs:
+  which_model_G: ConditionalUNets
+  setting:
+    in_nc: 1
+    out_nc: 1
+    nf: 64
+    depth: 4
+
+#### path
+path:
+  # 🚀 必须基于纯净的 5000 步底牌权重作为起点
+  pretrain_model_G: /root/autodl-tmp/models/baseline_degprompt__5000.pth
+  pretrain_model_Gs: /root/autodl-tmp/models/psv/psv,T=100/s.pth
+  strict_load: false 
+  resume_state: ~
+
+#### training settings
+train:
+  optimizer: Adam
+  loss_type: l1
+  
+  # 初始学习率保持 1e-5，扩散模型微调不宜过大
+  lr_G: !!float 1e-5 
+  lr_scheme: MultiStepLR
+  # 🚀 延长训练周期：CFG 和大掩码需要更多时间收敛
+  lr_steps: [10000, 16000]
+  lr_gamma: 0.5
+  beta1: 0.9
+  beta2: 0.999
+  niter: 20000 
+  warmup_iter: -1
+  
+  
+
+logger:
+  # 每 2000 步保存一次，方便你切不同阶段的权重去测试
+  save_checkpoint_freq: !!float 2000
+  print_freq: 50

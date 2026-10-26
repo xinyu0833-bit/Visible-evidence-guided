@@ -1,0 +1,109 @@
+#### general settings
+name: StrDiffusion_Ours_MultiScalePrompt_Retrain
+use_tb_logger: true
+model: denoising
+distortion: derain
+gpu_ids: [0]
+manual_seed: 1234
+
+sde:
+  max_sigma: 30
+  T: 100
+  schedule: cosine
+  eps: 0.005
+
+degradation:
+  mask_root: /root/autodl-tmp/data/mural/DUNHUANG/train/train_mask
+
+#### datasets
+datasets:
+  train:
+    name: Train_Dataset
+    mode: GT
+    dataroot_GT: /root/autodl-tmp/data/mural/DUNHUANG/train/train_GT
+    prompt_path: /root/autodl-tmp/data/mural/DUNHUANG/train/prompts_qwen_degradation.json
+    use_shuffle: true
+    n_workers: 8
+    batch_size: 8
+    GT_size: 256
+    use_flip: true
+    use_rot: true
+    color: RGB
+
+#### network structures
+network_G:
+  which_model_G: ConditionalUNet
+  setting:
+    in_nc: 3
+    out_nc: 3
+    nf: 64
+    depth: 4
+
+    # New multi-scale prompt adapter settings
+    use_prompt_adapter: true
+    prompt_injection: full
+    adapter_variant: film_attn
+    route_mode: hole_boundary
+    route_boundary_weight: 0.5
+    route_temperature: 4.0
+    route_kernel_size: 5
+    prompt_scale: 2.0
+
+network_Gs:
+  which_model_G: ConditionalUNets
+  setting:
+    in_nc: 1
+    out_nc: 1
+    nf: 64
+    depth: 4
+
+#### path
+path:
+  # Use clean StrDiffusion / old backbone as initialization.
+  # New prompt_adapter_mid and prompt_adapters_up will be initialized from current code.
+  pretrain_model_G: /root/autodl-tmp/models/baseline_degprompt__5000.pth
+  pretrain_model_Gs: /root/autodl-tmp/models/psv/psv,T=100/s.pth
+  strict_load: false
+  resume_state: ~
+
+#### training settings
+train:
+  optimizer: Adam
+  loss_type: l1
+  is_weighted: false
+  weight: 1.0
+  weight_decay_G: 0
+
+  # Prompt branch
+  enable_prompt: true
+  clip_model_path: /root/autodl-tmp/hf_cache/hub/models--openai--clip-vit-large-patch14/snapshots/32bd64288804d66eefd0ccbe215aa642df71cc41
+  prompt_drop_prob: 0.1
+
+  # Hole and boundary losses
+  lambda_hole: 1.0
+  lambda_boundary: 2.0
+  boundary_kernel_size: 5
+
+  # Prompt ranking regularizer.
+  # It helps force the model to distinguish matched and mismatched prompts.
+  lambda_prompt_rank: 0.05
+  prompt_rank_margin: 0.01
+  prompt_rank_every: 4
+
+  # Adapter-only training can use larger lr than full diffusion fine-tuning.
+  lr_G: !!float 1e-4
+  lr_scheme: MultiStepLR
+  lr_steps: [10000, 16000]
+  lr_gamma: 0.5
+  restarts: []
+  restart_weights: []
+  clear_state: false
+
+  beta1: 0.9
+  beta2: 0.999
+  niter: 20000
+  warmup_iter: -1
+
+logger:
+  save_checkpoint_freq: 2000
+  print_freq: 50

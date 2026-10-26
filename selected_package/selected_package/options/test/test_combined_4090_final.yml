@@ -1,0 +1,57 @@
+#### general settings
+name: test_combined_ours_4090_final_newPrompt
+suffix: ~  
+model: denoising
+distortion: derain
+gpu_ids: [0]
+
+sde:
+  max_sigma: 30
+  T: 100
+  schedule: cosine
+  eps: 0.005
+
+#### datasets (同时评测两个数据集)
+datasets:
+  test1:
+    name: DUNHUANG_Test
+    mode: GT
+    dataroot_GT: /root/autodl-tmp/data/mural/DUNHUANG/test/test_GT
+    mask_root: /root/autodl-tmp/data/mural/DUNHUANG/test/test_mask
+    prompt_path: /root/autodl-tmp/data/mural/DUNHUANG/test/prompts_qwen_degradation_natural.json
+
+  test2:
+    name: DhMurals1714_Test
+    mode: GT
+    dataroot_GT: /root/autodl-tmp/data/mural/DhMurals1714/test/images
+    # DH 数据集通常共用 DUNHUANG 的掩码库进行随机遮挡
+    mask_root: /root/autodl-tmp/data/mural/DUNHUANG/test/test_mask
+    prompt_path: /root/autodl-tmp/data/mural/muralDH/prompts_qwen_degradation_natural.json
+
+#### network structures
+network_G:
+  which_model_G: ConditionalUNet
+  setting:
+    in_nc: 3
+    out_nc: 3
+    nf: 64
+    depth: 4
+    
+network_Gs:
+  which_model_G: ConditionalUNets
+  setting:
+    in_nc: 1
+    out_nc: 1
+    nf: 64
+    depth: 4
+
+#### path
+path:
+  # 🚀 指向你单卡 4090 跑出来的最新 20000 步权重
+  pretrain_model_G: /root/autodl-tmp/StrDiffusion_Official/train/texture/config/inpainting/log/StrDiffusion_Ours_Final_RTX4090/models/latest_G.pth
+  
+  # 官方结构与判别器权重 (保持不变)
+  pretrain_model_Gs: /root/autodl-tmp/models/psv/psv,T=100/s.pth
+  pretrain_model_D: /root/autodl-tmp/models/psv/psv,T=100/dis.pth
+  
+  strict_load: false

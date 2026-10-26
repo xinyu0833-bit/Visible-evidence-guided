@@ -1,0 +1,96 @@
+#### general settings
+name: train_ablation_E_soft_routing
+use_tb_logger: true
+model: denoising
+distortion: derain
+gpu_ids: [0]
+manual_seed: 1234
+
+sde:
+  max_sigma: 30
+  T: 100
+  schedule: cosine
+  eps: 0.005
+
+degradation:
+  mask_root: /root/autodl-tmp/data/mural/DUNHUANG/train/train_mask
+
+datasets:
+  train:
+    name: Train_Dataset
+    mode: GT
+    dataroot_GT: /root/autodl-tmp/data/mural/DUNHUANG/train/train_GT
+    prompt_path: /root/autodl-tmp/data/mural/DUNHUANG/train/prompts_qwen_degradation.json
+    use_shuffle: true
+    n_workers: 4
+    batch_size: 2
+    GT_size: 256
+    use_flip: true
+    use_rot: true
+    color: RGB
+
+network_G:
+  which_model_G: ConditionalUNet
+  setting:
+    in_nc: 3
+    out_nc: 3
+    nf: 64
+    depth: 4
+
+    # E: enable prompt injection + routing.
+    # Do NOT add use_prompt_adapter / use_soft_routing here.
+    prompt_scale: 2.0
+    route_boundary_weight: 0.5
+    route_temperature: 4.0
+
+network_Gs:
+  which_model_G: ConditionalUNets
+  setting:
+    in_nc: 1
+    out_nc: 1
+    nf: 64
+    depth: 4
+
+path:
+  pretrain_model_G: /root/autodl-tmp/models/psv/psv,T=100/t.pth
+  pretrain_model_Gs: /root/autodl-tmp/models/psv/psv,T=100/s.pth
+  strict_load: false
+  resume_state: ~
+
+train:
+  manual_seed: 1234
+  prompt_drop_prob: 0.05
+
+  optimizer: AdamW
+  loss_type: l1
+  is_weighted: false
+  weight: 1.0
+
+  lr_G: !!float 5e-5
+  weight_decay_G: 0
+
+  lr_scheme: MultiStepLR
+  lr_steps: [10000, 16000]
+  lr_gamma: 0.5
+
+  beta1: 0.9
+  beta2: 0.999
+  niter: 20000
+  warmup_iter: -1
+
+  restarts: []
+  restart_weights: []
+  clear_state: false
+
+  # E: boundary inherited from B, prompt-rank disabled.
+  use_boundary_loss: true
+  boundary_weight: 2.0
+  boundary_kernel_size: 5
+
+  lambda_prompt_rank: 0.0
+  prompt_rank_margin: 0.01
+  prompt_rank_every: 4
+
+logger:
+  save_checkpoint_freq: 2000
+  print_freq: 50

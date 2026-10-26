@@ -1,0 +1,85 @@
+#### general settings
+name: StrDiffusion_Finetune_Prompt_new
+use_tb_logger: true
+model: denoising
+distortion: derain
+gpu_ids: [0]
+
+sde:
+  max_sigma: 30
+  T: 100
+  schedule: cosine
+  eps: 0.005
+
+# 👇 请把这部分加进来！补上缺失的 degradation 模块
+degradation:
+  # 注意：这里请替换为你真实的训练集 Mask 文件夹路径
+  mask_root: /root/autodl-tmp/data/mural/DUNHUANG/train/train_mask
+
+#### datasets
+datasets:
+  train:
+    name: Train_Dataset
+    mode: GT
+    # 👇 确保这里的路径指向你的【训练集】
+    dataroot_GT: /root/autodl-tmp/data/mural/DUNHUANG/train/train_GT
+    prompt_path: /root/autodl-tmp/data/mural/DUNHUANG/train/prompts_qwen_degradation.json
+    
+    use_shuffle: true
+    n_workers: 4
+    batch_size: 8 # 显存如果爆了，改成 4
+    GT_size: 256
+    use_flip: true
+    use_rot: true
+    color: RGB
+  
+
+
+#### network structures
+network_G:
+  which_model_G: ConditionalUNet
+  setting:
+    in_nc: 3
+    out_nc: 3
+    nf: 64
+    depth: 4
+    
+network_Gs:
+  which_model_G: ConditionalUNets
+  setting:
+    in_nc: 1
+    out_nc: 1
+    nf: 64
+    depth: 4
+
+#### path
+path:
+  # ✨ 核心：以你表现最好的 latest 权重作为微调起点
+  pretrain_model_G: /root/autodl-tmp/StrDiffusion_Official/train/experiments/inpainting/StrDiffusion_Finetune_Prompt/models/latest_G.pth
+  pretrain_model_Gs: /root/autodl-tmp/models/psv/psv,T=100/s.pth # 结构网络保持官方预训练即可
+  strict_load: true
+  resume_state: ~ # 留空，因为这是一次全新的微调周期，重置优化器状态
+
+#### training settings: learning rate scheme, loss
+train:
+  optimizer: Adam
+  
+  # 👇 1. 补上这行！告诉模型使用 L1 Loss（绝对误差）进行损失计算
+  loss_type: l1 
+  
+  # ✨ 核心：学习率大幅降低！假设原版是 1e-4，这里降到 1e-5
+  lr_G: !!float 1e-5 
+  lr_scheme: MultiStepLR
+  weight_decay_G: 0
+  beta1: 0.9
+  beta2: 0.999
+
+  # ✨ 核心：缩短训练总步数
+  niter: 20000 
+  warmup_iter: -1
+
+  # 👇 2. 既然不使用 val，必须把触发验证的这行注释掉，防止到 2000 步时报错
+  # val_freq: !!float 2e3         
+logger:
+  save_checkpoint_freq: !!float 5e3 # 每 5000 步存一次权重
+  print_freq: 100
