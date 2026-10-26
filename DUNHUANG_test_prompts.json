@@ -1,0 +1,602 @@
+{
+  "501": {
+    "image_id": "501",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/501_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/501_mask.jpg",
+    "final_prompt": "Visible content: The mural depicts a scene with a building, trees, and possibly figures, rendered in muted earth tones and reds.\nPainted style and palette: The mural uses a traditional style with a limited palette of earthy colors, including greens, reds, and browns, with red lines outlining architectural elements.\nMask morphology: The binary mask shows a complex, irregular pattern of black and white pixels, with the black areas indicating the missing parts of the mural."
+  },
+  "502": {
+    "image_id": "502",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/502_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/502_mask.jpg",
+    "final_prompt": "Visible content: The mural depicts a scene with figures, possibly monks or scholars, seated in a room with tables and chairs. The figures are rendered in a muted palette with earthy tones and subtle details.\n\nPainted style and palette: The mural is painted in a traditional style, with a limited color palette that includes shades of brown, gray, and green. The figures are depicted with simple, stylized features, and the overall style is reminiscent of classical Chinese or East Asian art.\n\nMask morphology: The binary mask shows that the mural has been partially obscured, with the missing areas highlighted in black. The missing sections appear to be random and do not follow a specific pattern, indicating that the damage is likely accidental or due to wear and tear over time."
+  },
+  "503": {
+    "image_id": "503",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/503_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/503_mask.jpg",
+    "final_prompt": "Visible content: The mural features a tiered structure with alternating red and white layers, surrounded by green and black decorative elements. The structure is adorned with black and red patterns, and the background includes green and brown elements, possibly representing foliage and flames.\n\nPainted style and palette: The mural employs a traditional Dunhuang style, characterized by its use of bold, contrasting colors and intricate patterns. The palette includes red, white, green, black, and brown hues, with a focus on geometric and floral motifs.\n\nMask morphology: The binary mask shows a complex, irregular pattern of black and white pixels, indicating the areas where the mural image is missing or obscured. The black areas correspond to the masked regions, while the white areas represent the visible parts of the mural."
+  },
+  "504": {
+    "image_id": "504",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/504_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/504_mask.jpg",
+    "final_prompt": "Visible content: The mural features a group of figures with halos, wearing traditional attire, and adorned with jewelry. The figures are depicted in a serene and reverent manner, with halos suggesting a divine or spiritual context.\n\nPainted style and palette: The mural employs a muted color palette, primarily using shades of green, black, and white. The figures are outlined with black, and the halos are filled with a greenish hue. The overall style is reminiscent of traditional East Asian or Central Asian art, with a focus on religious or spiritual themes.\n\nMask morphology: The binary mask highlights the areas where the mural is missing or obscured. The mask shows irregular, organic shapes, indicating that the missing portions are not uniform or geometric. The mask is scattered across the image, with some larger areas"
+  },
+  "505": {
+    "image_id": "505",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/505_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/505_mask.jpg",
+    "final_prompt": "Visible content: The mural features intricate designs with circular patterns and stylized figures, using muted earth tones and black outlines. The figures appear to be in a meditative or ceremonial pose, surrounded by circular motifs.\n\nPainted style and palette: The mural exhibits a traditional Dunhuang style, characterized by its use of muted earth tones and black outlines. The figures are depicted with simplified, stylized forms, and the overall composition is balanced and harmonious.\n\nMask morphology: The binary mask highlights the areas where the mural is missing, revealing a complex, organic pattern that appears to be part of the mural's design. The mask is irregular and has a fractal-like appearance, suggesting that the missing areas are part of the mural's intricate design."
+  },
+  "506": {
+    "image_id": "506",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/506_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/506_mask.jpg",
+    "final_prompt": "Visible content: The mural features intricate designs with swirling patterns and a mix of black, white, and green colors. There are visible signs of wear and tear, such as cracks and missing paint.\n\nPainted style and palette: The mural has a traditional East Asian style, characterized by its use of bold, contrasting colors and detailed, symmetrical patterns. The palette includes black, white, and various shades of green, with occasional use of red and orange.\n\nMask morphology: The binary mask shows that the mural has been partially obscured, with some areas of the image missing. The missing areas are scattered and do not follow a specific pattern, indicating that the damage is random and not due to a deliberate removal of content."
+  },
+  "507": {
+    "image_id": "507",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/507_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/507_mask.jpg",
+    "final_prompt": "Visible content: The mural features intricate designs with a mix of green, brown, and black colors. There are circular patterns and abstract shapes, possibly depicting mythological or religious figures.\n\nPainted style and palette: The mural has a traditional East Asian style, with a limited color palette dominated by earthy tones. The use of green and black adds a contrasting element to the overall composition.\n\nMask morphology: The binary mask shows that the mural has been partially obscured, with the missing areas highlighted in black. The missing sections are scattered across the image, with some larger gaps and others smaller, indicating that the mural has been damaged or altered."
+  },
+  "508": {
+    "image_id": "508",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/508_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/508_mask.jpg",
+    "final_prompt": "Visible content: The mural features intricate designs with a central circular motif surrounded by various patterns, including floral and geometric elements. The color palette includes muted greens, blues, and earth tones, with black outlines defining the shapes.\n\nPainted style and palette: The mural exhibits a traditional East Asian artistic style, characterized by its use of muted colors and detailed, symmetrical patterns. The palette is limited but rich, with a focus on natural tones and subtle contrasts.\n\nMask morphology: The binary mask shows a fragmented pattern, with black areas indicating missing or obscured parts of the mural. The mask is irregular, with no discernible shape or form, suggesting that the missing areas are scattered and not part of a larger, contiguous section."
+  },
+  "509": {
+    "image_id": "509",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/509_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/509_mask.jpg",
+    "final_prompt": "Visible content: The mural features a central figure with a halo, surrounded by intricate designs and patterns. The color palette includes shades of green, brown, and black, with a muted, earthy tone. The painted style is traditional, with a focus on line work and symbolic representation.\n\nPainted style and palette: Traditional mural art with a focus on line work and symbolic representation. The color palette includes shades of green, brown, and black, with a muted, earthy tone.\n\nMask morphology: The binary mask shows a pattern of black and white pixels, with the black areas indicating the missing parts of the mural. The mask is irregular, with various shapes and sizes, suggesting that the missing areas are not uniform."
+  },
+  "510": {
+    "image_id": "510",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/510_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/510_mask.jpg",
+    "final_prompt": "Visible content: The mural features a scene with black and green elements, including what appears to be a figure with a green robe and black hair, and black hats or structures. The background includes floral patterns and other decorative elements.\nPainted style and palette: The mural has a traditional East Asian style, with a limited color palette primarily consisting of black and green. The use of black hats and green robes suggests a cultural or historical context.\nMask morphology: The binary mask shows a pattern of black and white pixels, with the black areas indicating the missing parts of the mural. The white areas correspond to the visible parts of the mural."
+  },
+  "511": {
+    "image_id": "511",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/511_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/511_mask.jpg",
+    "final_prompt": "Visible content: The mural features intricate designs with a mix of black, brown, and green colors. There are abstract shapes and possibly animal figures, including what appears to be a horse and a bird.\n\nPainted style and palette: The mural has a traditional, possibly ancient style with a limited color palette dominated by earth tones. The brushwork is detailed and expressive, suggesting a high level of craftsmanship.\n\nMask morphology: The binary mask shows a complex, irregular pattern with numerous black pixels scattered across the image, indicating areas where the mural is obscured or missing. The mask does not follow any discernible shape or pattern, suggesting that the missing parts are random and not part of a specific design element."
+  },
+  "512": {
+    "image_id": "512",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/512_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/512_mask.jpg",
+    "final_prompt": "Visible content: The mural features intricate designs with a mix of black, green, and brown colors, depicting what appears to be a scene with multiple figures and floral elements.\n\nPainted style and palette: The mural exhibits a traditional East Asian style, characterized by its use of bold, contrasting colors and detailed, symbolic representations. The palette includes black, green, and brown hues, with a focus on naturalistic and mythological motifs.\n\nMask morphology: The binary mask highlights the areas where the mural is missing, with white indicating known content and black indicating missing content. The mask shows that the mural is mostly intact, with some missing sections, particularly in the upper left and lower right corners."
+  },
+  "513": {
+    "image_id": "513",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/513_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/513_mask.jpg",
+    "final_prompt": "Visible content: The mural depicts a figure with a halo, wearing a robe, and making a gesture with one hand. The figure is surrounded by intricate patterns and symbols.\nPainted style and palette: The mural uses a muted color palette with earth tones, primarily browns, greens, and whites. The style is intricate and detailed, with a focus on religious or spiritual themes.\nMask morphology: The binary mask shows that the mural is mostly intact, with some missing areas in the upper right and lower left corners. The missing areas are irregular and scattered."
+  },
+  "514": {
+    "image_id": "514",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/514_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/514_mask.jpg",
+    "final_prompt": "Visible content: The mural depicts a scene with figures in traditional attire, possibly from an ancient civilization, with a mix of earthy tones and muted colors. The figures are arranged in a hierarchical manner, suggesting a social or religious context.\n\nPainted style and palette: The mural employs a muted color palette with earthy tones, including shades of brown, green, and beige. The style is reminiscent of ancient cave paintings, with a focus on simple, geometric shapes and a lack of fine detail.\n\nMask morphology: The binary mask shows a pattern of black and white pixels, with the white areas indicating the known parts of the mural and the black areas indicating the missing parts. The pattern is irregular, with no discernible shape or form."
+  },
+  "515": {
+    "image_id": "515",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/515_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/515_mask.jpg",
+    "final_prompt": "Visible content: The mural depicts a figure with a halo, wearing a headpiece and a robe, with hands in a gesture of prayer or blessing. The figure is seated on a throne-like structure with a green and white background. The mural is in a traditional East Asian style, with muted colors and intricate line work.\n\nPainted style and palette: The mural is painted in a traditional East Asian style, characterized by muted colors and intricate line work. The palette includes shades of green, white, black, and brown, with a focus on naturalistic forms and detailed expressions.\n\nMask morphology: The binary mask shows that the mural is mostly intact, with some areas missing. The missing areas are scattered and do not form a coherent pattern."
+  },
+  "516": {
+    "image_id": "516",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/516_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/516_mask.jpg",
+    "final_prompt": "Visible content: The mural depicts a scene with figures, possibly musicians, in a landscape setting. The figures are dressed in traditional attire, and there are musical instruments visible. The bottom of the mural features a decorative border with floral patterns.\nPainted style and palette: The mural is painted in a traditional style, with muted earth tones and a limited color palette. The figures and landscape are rendered with simple, flat colors, and the decorative elements are intricate with a focus on symmetry and repetition.\nMask morphology: The binary mask shows that the mural is mostly intact, with some areas missing. The missing areas are scattered and do not form a coherent pattern, indicating that the damage is random and not systematic."
+  },
+  "517": {
+    "image_id": "517",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/517_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/517_mask.jpg",
+    "final_prompt": "Visible content: The mural features intricate designs with a combination of green, white, and brown colors. The designs include circular patterns and what appears to be stylized floral elements. The mural has a traditional, possibly East Asian, artistic style.\n\nPainted style and palette: The mural employs a muted color palette with shades of green, white, and brown. The designs are detailed and symmetrical, suggesting a high level of craftsmanship.\n\nMask morphology: The binary mask shows a complex, irregular pattern with numerous black pixels scattered across the image. The mask does not follow any discernible shape or pattern, indicating that it is randomly generated or used for a specific purpose unrelated to the mural's content."
+  },
+  "518": {
+    "image_id": "518",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/518_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/518_mask.jpg",
+    "final_prompt": "Visible content: The mural depicts a traditional Chinese architectural structure with red beams and green roofs, set against a pale background with light green and white clouds. There are also some dark green and red elements that appear to be plants or decorative elements.\n\nPainted style and palette: The mural uses a muted color palette with red, green, and white tones. The style is reminiscent of traditional Chinese painting, with a focus on simplicity and harmony.\n\nMask morphology: The binary mask shows that the mural is mostly intact, with some missing areas in the top left and bottom right corners. The missing areas are irregularly shaped and do not follow a specific pattern."
+  },
+  "519": {
+    "image_id": "519",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/519_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/519_mask.jpg",
+    "final_prompt": "Visible content: The mural depicts a stylized, abstract representation of a boat with multiple levels, featuring a combination of green, orange, and black colors. The boat has a central structure with a series of horizontal lines and circular elements, possibly representing windows or decorative elements. The boat's hull is black with green accents, and it has a series of black and green elements hanging from the sides, resembling lanterns or other decorative items.\n\nPainted style and palette: The mural employs a simple, yet expressive style with a limited color palette. The use of green, orange, and black creates a striking contrast, emphasizing the boat's structure and decorative elements. The mural appears to be executed with a flat, two-dimensional perspective, typical of traditional mural art.\n\nMask morphology: The binary mask shows the areas"
+  },
+  "520": {
+    "image_id": "520",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/520_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/520_mask.jpg",
+    "final_prompt": "Visible content: The mural depicts a stylized, abstract figure with a large, circular head and a small, central eye. The figure has a wide, open mouth with two large, curved horns protruding from the sides. The background features a muted color palette with shades of green, blue, and brown, and the figure is outlined with a thin, dark line.\n\nPainted style and palette: The mural is created using a muted color palette with shades of green, blue, and brown. The style is abstract and stylized, with a focus on geometric shapes and lines. The figure is outlined with a thin, dark line, and the background features a muted color palette with shades of green, blue, and brown.\n\nMask morphology: The binary mask shows that the figure is the main subject of"
+  },
+  "521": {
+    "image_id": "521",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/521_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/521_mask.jpg",
+    "final_prompt": "Visible content: The mural features abstract circular and curved shapes with a muted color palette, including shades of green, brown, and gray. The background is a light beige or off-white color. The mural shows signs of wear and aging, with some areas appearing more faded or damaged than others.\n\nPainted style and palette: The mural has a traditional, possibly ancient style, with a focus on simple geometric shapes and a limited color scheme. The palette is subdued, with earthy tones and a lack of bright or vibrant colors.\n\nMask morphology: The binary mask highlights the areas that are missing or obscured in the mural. The mask consists of irregular, organic shapes that correspond to the missing sections of the mural. The shapes are complex and varied, with some areas appearing more densely packed with black pixels than others"
+  },
+  "522": {
+    "image_id": "522",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/522_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/522_mask.jpg",
+    "final_prompt": "Visible content: The mural depicts a figure with a halo, dressed in traditional robes, seated on a lotus flower. The background features abstract patterns and a greenish hue.\n\nPainted style and palette: The mural uses a muted color palette with earth tones, primarily greens, browns, and blacks. The style is reminiscent of traditional East Asian art, with a focus on symbolic representation and intricate detailing.\n\nMask morphology: The binary mask shows a complex, irregular pattern with numerous black pixels scattered across the image, indicating areas where the mural is obscured or missing. The mask does not follow a uniform shape, suggesting that the missing portions are not aligned with any specific geometric pattern."
+  },
+  "523": {
+    "image_id": "523",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/523_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/523_mask.jpg",
+    "final_prompt": "Visible content: The mural depicts a series of stylized, multi-tiered structures with intricate details, including geometric patterns and decorative elements. The color palette includes shades of red, green, blue, and black, with a muted, earthy tone overall.\n\nPainted style and palette: The mural is characterized by a flat, two-dimensional style with bold, contrasting colors. The use of primary colors and a limited palette creates a sense of harmony and balance.\n\nMask morphology: The binary mask shows a series of irregular, fragmented shapes scattered across the image. These shapes are not aligned in any particular pattern and appear to be randomly distributed."
+  },
+  "524": {
+    "image_id": "524",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/524_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/524_mask.jpg",
+    "final_prompt": "Visible content: The mural depicts a figure with intricate details, including a halo, a staff, and a garment with a floral pattern. The figure is seated in a meditative pose.\n\nPainted style and palette: The mural is painted in a traditional style, with a limited palette that includes earthy tones, greens, and blacks. The lines are finely drawn, and the figure is adorned with detailed accessories.\n\nMask morphology: The binary mask shows a complex, organic shape with numerous branches and tendrils, indicating that the missing content is highly detailed and possibly includes foliage or a similar natural element."
+  },
+  "525": {
+    "image_id": "525",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/525_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/525_mask.jpg",
+    "final_prompt": "Visible content: The mural depicts a seated figure with a halo, adorned with jewelry, and surrounded by intricate patterns and a floral design. The figure's hands are in a gesture of prayer or meditation.\n\nPainted style and palette: The mural is painted in a traditional style with muted colors, primarily using shades of green, brown, and black. The lines are bold and the figures are stylized, typical of ancient religious art.\n\nMask morphology: The binary mask shows a large area of missing content, particularly in the upper right section, where the figure's head and upper body are obscured. The mask also reveals some of the mural's details, such as the floral patterns and the figure's hands."
+  },
+  "526": {
+    "image_id": "526",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/526_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/526_mask.jpg",
+    "final_prompt": "Visible content: The mural depicts a figure in traditional attire, with intricate details in black, white, and shades of green and blue. The figure is adorned with a headdress and is holding an object in one hand. The background features geometric patterns and a circular element.\n\nPainted style and palette: The mural is characterized by a traditional style with a limited color palette, primarily using black, white, and shades of green and blue. The figures are depicted with fine lines and detailed patterns, typical of classical Chinese art.\n\nMask morphology: The binary mask shows large areas of black, indicating the absence of content in those regions. The white areas correspond to the visible parts of the mural. The mask is irregular, with no discernible pattern, suggesting that the missing content is not part of a recognizable shape"
+  },
+  "527": {
+    "image_id": "527",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/527_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/527_mask.jpg",
+    "final_prompt": "Visible content: The mural depicts a figure with a halo, possibly a religious or spiritual being, with a serene expression. The figure is adorned with a robe and a sash, and there are intricate patterns on the robe. The background is plain, with a hint of a red and green border at the top.\n\nPainted style and palette: The mural is painted in a traditional style, with muted earth tones and subtle color variations. The use of line work and shading suggests a classical approach to depicting the figure.\n\nMask morphology: The binary mask shows a complex, irregular pattern of missing areas, with some larger gaps and smaller, scattered black pixels. The mask does not follow a simple geometric shape but rather appears to be a natural, organic form."
+  },
+  "528": {
+    "image_id": "528",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/528_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/528_mask.jpg",
+    "final_prompt": "Visible content: The mural features geometric patterns, including diamond shapes and lattice designs, with a muted color palette of red, green, and beige. There are also faint outlines of human figures and architectural elements, such as windows and doors, within the geometric framework.\n\nPainted style and palette: The mural exhibits a traditional, possibly ancient, painted style with a limited color palette. The geometric patterns and human figures are rendered with simple, yet effective lines and shapes, suggesting a focus on form and structure over detailed realism.\n\nMask morphology: The binary mask reveals the areas where the mural is missing or obscured. The mask shows a complex, organic pattern that appears to be a natural formation, possibly resembling a tree or plant, with intricate branches and leaves. The mask is irregular and does not follow a regular geometric"
+  },
+  "529": {
+    "image_id": "529",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/529_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/529_mask.jpg",
+    "final_prompt": "Visible content: The mural depicts a scene with a building, a figure, and some objects on the ground. The building has a roof and windows, and the figure appears to be interacting with the objects.\n\nPainted style and palette: The mural uses a muted color palette with shades of red, green, and brown. The style is simple and somewhat abstract, with outlines and minimal detail.\n\nMask morphology: The binary mask shows a complex, irregular pattern of black and white pixels, indicating the areas where the mural is missing or obscured. The black areas correspond to the masked parts of the mural."
+  },
+  "530": {
+    "image_id": "530",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/530_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/530_mask.jpg",
+    "final_prompt": "Visible content: The mural depicts a scene with a figure in flames, surrounded by other figures, and a structure in the background. The scene is set in a traditional architectural setting with red and green elements.\n\nPainted style and palette: The mural uses a muted color palette with shades of red, green, and beige. The figures are rendered in a simplified, almost cartoon-like style, with minimal detail.\n\nMask morphology: The binary mask shows a complex, irregular pattern of black and white pixels, indicating the areas where the mural image is missing or obscured. The black areas correspond to the masked regions in the mural image."
+  },
+  "531": {
+    "image_id": "531",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/531_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/531_mask.jpg",
+    "final_prompt": "Visible content: The mural depicts a scene with a green pool, a figure in the water, and a building with red and green walls. The scene is set in a room with a green floor and a red wall.\n\nPainted style and palette: The mural uses a muted palette with shades of green, red, and beige. The style is simple and somewhat abstract, with visible brushstrokes and a limited color range.\n\nMask morphology: The binary mask shows large areas of missing content, particularly in the upper and lower parts of the image. The missing areas are irregular and do not follow a specific pattern."
+  },
+  "532": {
+    "image_id": "532",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/532_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/532_mask.jpg",
+    "final_prompt": "Visible content: A mural depicting a scene with a person, a dog, and a building with red and green elements.\nPainted style and palette: The mural uses a simple, flat style with muted colors, primarily red, green, and beige.\nMask morphology: The binary mask shows a complex, irregular pattern of black and white areas, indicating the missing and known parts of the mural."
+  },
+  "533": {
+    "image_id": "533",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/533_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/533_mask.jpg",
+    "final_prompt": "Visible content: The mural depicts a scene with figures and architectural elements, featuring muted earth tones and red accents.\nPainted style and palette: The mural uses a traditional Dunhuang style with muted earth tones and red accents, typical of ancient Chinese art.\nMask morphology: The binary mask shows a complex, irregular pattern of missing areas, with a dense cluster of black pixels in the center and scattered black pixels around the edges."
+  },
+  "534": {
+    "image_id": "534",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/534_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/534_mask.jpg",
+    "final_prompt": "Visible content: The mural depicts a tiered structure with alternating red and white layers, supported by black columns. The structure is adorned with intricate patterns and has a green background with additional black and white elements.\n\nPainted style and palette: The mural uses a muted color palette with shades of green, red, white, and black. The style is intricate and detailed, with a focus on geometric and patterned designs.\n\nMask morphology: The binary mask shows a complex, irregular pattern with numerous black areas indicating missing content. The mask is fragmented and does not follow a clear shape, suggesting that the missing parts are scattered and not easily predictable."
+  },
+  "535": {
+    "image_id": "535",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/535_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/535_mask.jpg",
+    "final_prompt": "Visible content: The mural features a combination of green, black, and red colors, with a structure that appears to be a building or a temple, and figures that might be people or deities. The style is reminiscent of traditional Chinese or East Asian art, with bold lines and a flat color palette.\n\nPainted style and palette: The mural employs a flat, two-dimensional style with bold, contrasting colors. The palette includes green, black, and red, with a limited range of shades.\n\nMask morphology: The binary mask shows a complex, irregular pattern with numerous black areas scattered across the image, indicating the missing parts of the mural. The mask does not follow any discernible shape or pattern, suggesting that the missing areas are random and not part of a specific design."
+  },
+  "536": {
+    "image_id": "536",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/536_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/536_mask.jpg",
+    "final_prompt": "Visible content: A seated figure with a halo, hands in a gesture, and a decorative halo.\nPainted style and palette: Ancient, monochromatic, with muted earth tones and a limited color palette.\nMask morphology: The mask is irregular, with various shapes and sizes, indicating missing areas in the mural."
+  },
+  "537": {
+    "image_id": "537",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/537_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/537_mask.jpg",
+    "final_prompt": "Visible content: The mural features a large, detailed lotus flower with green and brown petals, set against a light green background. Below the lotus, there are two black, ornate stands or altars, each with intricate designs and a central column. The stands are placed on a green base, and the overall style is reminiscent of traditional Chinese or East Asian art.\n\nPainted style and palette: The mural employs a muted color palette, primarily using shades of green, brown, and black. The lotus flower is depicted with delicate brushstrokes, giving it a lifelike appearance. The stands are intricately designed with fine lines and patterns, suggesting a high level of craftsmanship.\n\nMask morphology: The binary mask reveals the areas that are missing or obscured in the mural. The mask shows"
+  },
+  "538": {
+    "image_id": "538",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/538_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/538_mask.jpg",
+    "final_prompt": "Visible content: The mural depicts a figure in a meditative pose, with a halo and intricate details in the clothing and background. The figure is seated on a lotus flower, and the background includes green foliage and a serene landscape.\n\nPainted style and palette: The mural is painted in a traditional style, with muted earth tones and soft colors. The use of green for the foliage and the halo around the figure's head adds a touch of vibrancy to the otherwise subdued palette.\n\nMask morphology: The binary mask shows a complex, irregular pattern of black and white pixels. The black areas correspond to the missing parts of the mural, while the white areas indicate the known parts. The mask is dense and detailed, covering a significant portion of the mural."
+  },
+  "539": {
+    "image_id": "539",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/539_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/539_mask.jpg",
+    "final_prompt": "Visible content: The mural features intricate designs with a mix of green, blue, and brown colors, depicting what appears to be mythological or religious figures. The style is reminiscent of traditional East Asian art, with a focus on fluid lines and symbolic elements.\n\nPainted style and palette: The mural employs a limited color palette, primarily using shades of green, blue, and brown. The style is characterized by its detailed and symbolic representation, typical of traditional East Asian mural art.\n\nMask morphology: The binary mask shows a complex, organic pattern with numerous branches and tendrils, indicating that the missing areas of the mural are scattered and not uniformly distributed. The mask's morphology suggests that the missing parts are not contiguous but rather consist of various, irregularly shaped sections."
+  },
+  "540": {
+    "image_id": "540",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/540_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/540_mask.jpg",
+    "final_prompt": "Visible content: The mural features circular patterns with black and white designs, surrounded by green and brown elements. The image is partially obscured by a white mask.\n\nPainted style and palette: The mural has a traditional, possibly ancient style with a limited color palette including black, white, green, brown, and shades of gray. The designs are intricate and symmetrical.\n\nMask morphology: The binary mask is composed of two large, irregularly shaped black areas that cover portions of the mural, leaving the circular patterns and surrounding elements visible."
+  },
+  "541": {
+    "image_id": "541",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/541_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/541_mask.jpg",
+    "final_prompt": "Visible content: The mural depicts a scene with various elements, including a figure, a tree, and possibly a building or structure, with a mix of green, black, and beige colors.\nPainted style and palette: The mural has a traditional style with a limited palette, primarily using green, black, and beige tones, with some red and white accents.\nMask morphology: The binary mask shows a complex, irregular pattern with numerous black areas, indicating missing or obscured parts of the mural."
+  },
+  "542": {
+    "image_id": "542",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/542_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/542_mask.jpg",
+    "final_prompt": "Visible content: The mural features abstract figures with circular patterns and black outlines, set against a green and beige background. The figures appear to be part of a larger, possibly religious or mythological scene.\n\nPainted style and palette: The mural employs a muted color palette with shades of green, beige, and black. The style is reminiscent of traditional East Asian art, with a focus on geometric shapes and symbolic figures.\n\nMask morphology: The binary mask reveals a complex, irregular pattern of black and white areas, indicating the extent of the missing content. The black areas correspond to the masked regions in the original image, while the white areas show the visible content."
+  },
+  "543": {
+    "image_id": "543",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/543_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/543_mask.jpg",
+    "final_prompt": "Visible content: The mural depicts a scene with figures and clouds, rendered in a traditional Chinese style with muted earth tones and intricate line work.\n\nPainted style and palette: The mural uses a muted palette dominated by earthy tones such as browns, greens, and tans, with occasional accents of red and black. The style is characterized by detailed line work and a sense of depth, typical of traditional Chinese mural art.\n\nMask morphology: The binary mask shows large, irregularly shaped areas of missing content, primarily in the upper and lower parts of the image, with some smaller gaps scattered throughout. The mask does not cover the entire image, leaving portions of the mural visible."
+  },
+  "544": {
+    "image_id": "544",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/544_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/544_mask.jpg",
+    "final_prompt": "Visible content: The mural depicts a figure with a halo, possibly a religious or spiritual being, surrounded by intricate patterns and symbols. The figure is seated, with hands in a gesture of blessing or teaching. The background features abstract designs and possibly other figures or elements, all rendered in a muted color palette with earth tones and soft gradients.\n\nPainted style and palette: The mural is created in a traditional style, likely from the Dunhuang Caves, characterized by its use of muted earth tones and soft, blended gradients. The style is reminiscent of ancient Chinese or Buddhist art, with a focus on spiritual and religious themes.\n\nMask morphology: The binary mask shows a complex, organic shape with numerous branches and tendrils, covering a significant portion of the mural. The mask's morphology suggests it is designed"
+  },
+  "545": {
+    "image_id": "545",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/545_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/545_mask.jpg",
+    "final_prompt": "Visible content: The mural features a scene with figures and objects, including a black bird-like figure, a black vase, and other elements in muted colors. The scene is set against a background with green and beige tones.\n\nPainted style and palette: The mural employs a traditional Dunhuang style, characterized by its use of muted earth tones and intricate details. The figures and objects are depicted with a sense of depth and movement, typical of Dunhuang art.\n\nMask morphology: The binary mask shows a complex, irregular pattern of black and white pixels, indicating the areas where the mural image is missing or obscured. The black areas correspond to the masked regions in the original image."
+  },
+  "546": {
+    "image_id": "546",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/546_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/546_mask.jpg",
+    "final_prompt": "Visible content: The mural features circular patterns with faces inside, painted in muted colors of green, black, and gray. The faces have simple, stylized features.\n\nPainted style and palette: The mural has a traditional, possibly ancient style with a limited color palette. The faces are depicted with minimal detail, emphasizing simplicity and stylization.\n\nMask morphology: The binary mask shows a complex, irregular shape with numerous small black areas scattered throughout, indicating missing or obscured parts of the mural."
+  },
+  "547": {
+    "image_id": "547",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/547_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/547_mask.jpg",
+    "final_prompt": "Visible content: The mural depicts a scene with a green background, a white figure, and a red and white floral pattern at the bottom. The figure appears to be a deity or a religious figure, possibly a Buddha or a bodhisattva, given the traditional East Asian iconography.\n\nPainted style and palette: The mural is painted in a traditional East Asian style, characterized by its use of muted earth tones and a limited color palette. The green background, white figure, and red and white floral patterns are typical of Dunhuang murals, which often feature religious and mythological scenes.\n\nMask morphology: The binary mask shows a complex, irregular pattern with numerous black areas indicating missing or obscured parts of the mural. The mask is dense and covers a significant portion of the image, suggesting that"
+  },
+  "548": {
+    "image_id": "548",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/548_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/548_mask.jpg",
+    "final_prompt": "Visible content: The mural features a scene with a ladder, a structure resembling a boat, and a floral pattern. The scene is set against a green and brown background with a red border. There are numbers \"1-4\" in the scene.\nPainted style and palette: The mural has a traditional style with muted colors, primarily using shades of green, brown, and red. The floral patterns are intricate and detailed.\nMask morphology: The binary mask shows that the mural has a complex, irregular shape with several disconnected black areas, indicating missing or obscured parts of the mural."
+  },
+  "549": {
+    "image_id": "549",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/549_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/549_mask.jpg",
+    "final_prompt": "Visible content: The mural features intricate patterns with a combination of green, black, and brown colors. There are geometric shapes and possibly floral elements, with a prominent red and black border at the bottom.\n\nPainted style and palette: The mural has a traditional East Asian style, characterized by its use of muted earth tones and detailed, symmetrical designs. The palette includes greens, blacks, browns, and reds, which are typical of historical murals in Dunhuang.\n\nMask morphology: The binary mask shows a complex, irregular pattern with numerous branches and tendrils. The mask is dense and covers a significant portion of the image, indicating that the mural has been extensively damaged or obscured."
+  },
+  "550": {
+    "image_id": "550",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/550_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/550_mask.jpg",
+    "final_prompt": "Visible content: A mural depicting a figure with a headdress and a garment, with a column to the right. The figure has a dark hair style and is holding a staff or object. The background is a muted, earthy tone with visible texture and wear.\n\nPainted style and palette: The mural is in a traditional style, with muted earth tones and a simple, flat color palette. The figures are rendered with minimal detail, and the background is plain, emphasizing the central figure.\n\nMask morphology: The binary mask shows a large, irregularly shaped area of missing content on the left side of the mural, covering the figure's head and upper body. There is also a smaller, more compact area of missing content on the right side, near the figure's lower body."
+  },
+  "551": {
+    "image_id": "551",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/551_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/551_mask.jpg",
+    "final_prompt": "Visible content: The mural depicts a figure with a serene expression, wearing traditional attire, and holding a staff. The background features intricate patterns and a border with a floral motif.\n\nPainted style and palette: The mural is painted in a traditional Dunhuang style, characterized by muted earth tones and delicate line work. The use of red, green, and brown hues is prominent, creating a harmonious and balanced color scheme.\n\nMask morphology: The binary mask is a complex, irregular shape with numerous branches and tendrils. It covers a significant portion of the mural, obscuring the figure and much of the background. The mask's intricate pattern suggests it is designed to highlight the missing or damaged areas of the mural."
+  },
+  "552": {
+    "image_id": "552",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/552_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/552_mask.jpg",
+    "final_prompt": "Visible content: The mural features a scene with a central structure resembling a cage or enclosure, surrounded by green foliage and black shapes that could be birds or leaves. The style is reminiscent of traditional Chinese painting, with muted earth tones and a serene atmosphere.\n\nPainted style and palette: The mural employs a muted palette with earthy tones, primarily greens, browns, and blacks. The style is traditional, with a focus on natural elements and a sense of tranquility.\n\nMask morphology: The binary mask shows a complex, organic pattern with numerous branches and tendrils, indicating the areas where the mural is missing or obscured. The mask is dense and intricate, covering a significant portion of the image."
+  },
+  "553": {
+    "image_id": "553",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/553_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/553_mask.jpg",
+    "final_prompt": "Visible content: The mural depicts a scene with architectural elements, possibly a temple or palace, featuring columns, a doorway, and a structure with a greenish hue. There are also figures or statues in the foreground, and the overall style is reminiscent of traditional Chinese or East Asian art.\n\nPainted style and palette: The mural uses a muted color palette with earthy tones, primarily greens, browns, and blacks. The style is characterized by bold, linear brushstrokes and a somewhat abstract approach to the depiction of forms and space.\n\nMask morphology: The binary mask shows a complex, irregular pattern of black and white pixels. The white areas correspond to the visible parts of the mural, while the black areas indicate the masked or missing parts. The mask has a high degree of detail, with many"
+  },
+  "554": {
+    "image_id": "554",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/554_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/554_mask.jpg",
+    "final_prompt": "Visible content: The mural depicts two figures with large, expressive eyes and a simple, stylized face. The figures are wearing robes with a green and brown pattern, and they are seated on a platform with a geometric design. The background features horizontal and vertical lines, creating a grid-like pattern.\n\nPainted style and palette: The mural is painted in a traditional Dunhuang style, characterized by its use of muted earth tones and simple, geometric shapes. The figures are depicted with exaggerated facial features and a limited color palette, primarily consisting of greens, browns, and earthy tones.\n\nMask morphology: The binary mask shows a pattern of white and black pixels, with the white areas representing the known parts of the mural and the black areas indicating the missing or obscured parts. The mask has a complex"
+  },
+  "555": {
+    "image_id": "555",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/555_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/555_mask.jpg",
+    "final_prompt": "Visible content: The mural features abstract shapes and lines, with a mix of muted colors including greens, browns, and blacks. The image shows signs of wear and tear, with visible cracks and discoloration.\n\nPainted style and palette: The mural has a traditional, possibly East Asian, artistic style characterized by its use of muted, earthy tones and abstract forms. The palette includes greens, browns, and blacks, with a limited range of colors.\n\nMask morphology: The binary mask reveals the areas where the mural is missing or obscured, with a complex, organic pattern that suggests the loss of significant portions of the artwork. The mask is irregular and does not follow a simple geometric shape, indicating that the missing areas are not uniform."
+  },
+  "556": {
+    "image_id": "556",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/556_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/556_mask.jpg",
+    "final_prompt": "Visible content: The mural features a group of figures with circular outlines, painted in muted colors with a greenish background. The figures appear to be in a serene, meditative pose, with some details like hair and clothing visible.\n\nPainted style and palette: The mural has a traditional, possibly Eastern aesthetic with a limited color palette dominated by earthy tones and a greenish background. The figures are depicted with simple, rounded shapes and minimal detail.\n\nMask morphology: The binary mask shows a pattern of black and white pixels, with the white areas indicating the known parts of the mural and the black areas indicating the missing parts. The mask is irregular, with no clear shapes or patterns, suggesting that the missing parts are scattered and not part of a recognizable form."
+  },
+  "557": {
+    "image_id": "557",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/557_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/557_mask.jpg",
+    "final_prompt": "Visible content: The mural features intricate patterns with a combination of black, white, and muted colors, including shades of green and brown. The design includes geometric shapes and possibly floral elements, with a central circular motif surrounded by symmetrical patterns.\n\nPainted style and palette: The mural exhibits a traditional style with a limited color palette, emphasizing earth tones and muted hues. The use of black lines and white spaces creates a high contrast, highlighting the intricate details of the design.\n\nMask morphology: The binary mask reveals a complex, organic shape with numerous branches and tendrils, suggesting a natural form, possibly a tree or plant. The mask is dense and detailed, with a high degree of complexity and interconnectivity."
+  },
+  "558": {
+    "image_id": "558",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/558_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/558_mask.jpg",
+    "final_prompt": "Visible content: The mural features a figure with a round face, large black eyes, and a small mouth, surrounded by circular patterns and abstract shapes. The figure is depicted in a monochromatic palette with black and white tones, and the background is a mix of muted colors.\n\nPainted style and palette: The mural is painted in a traditional style, with a focus on simple, bold lines and shapes. The palette is limited, primarily using black and white, with occasional use of muted colors for the background.\n\nMask morphology: The binary mask shows large, irregularly shaped black areas, indicating significant portions of the mural are missing or obscured. The missing areas are scattered throughout the image, with some larger gaps and others smaller, more fragmented."
+  },
+  "559": {
+    "image_id": "559",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/559_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/559_mask.jpg",
+    "final_prompt": "Visible content: The mural features a blend of muted colors, including shades of green, brown, and black, with intricate details that suggest a historical or mythological scene. The image shows parts of a structure, possibly a bridge or gate, and figures that appear to be in motion or engaged in an activity.\n\nPainted style and palette: The mural employs a traditional style with a limited color palette, emphasizing earth tones and muted greens. The brushwork is fine and detailed, indicating a high level of craftsmanship.\n\nMask morphology: The binary mask reveals large areas of missing content, particularly in the upper and lower sections of the image. The missing areas are irregular and do not follow a consistent pattern, suggesting that the damage is random and extensive."
+  },
+  "560": {
+    "image_id": "560",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/560_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/560_mask.jpg",
+    "final_prompt": "Visible content: The mural features a central figure with intricate designs, surrounded by swirling patterns and a halo-like aura. The color palette includes muted greens, blues, and earth tones, with black outlines defining the shapes. The style is reminiscent of traditional East Asian religious art, with a focus on spiritual and mythological themes.\n\nPainted style and palette: The mural employs a muted color palette with earthy tones and soft blues, accented by black outlines that highlight the figures and patterns. The style is detailed and ornate, typical of traditional East Asian religious art, with a focus on spiritual and mythological themes.\n\nMask morphology: The binary mask consists of irregular, interconnected black shapes scattered across the image, indicating areas where the mural is missing or obscured. The shapes are complex and organic, resembling natural"
+  },
+  "561": {
+    "image_id": "561",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/561_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/561_mask.jpg",
+    "final_prompt": "Visible content: The mural depicts a scene with multiple figures, likely from a historical or religious context, characterized by intricate details and a muted color palette dominated by earth tones and soft greens. The figures are adorned in traditional attire, suggesting a setting from an ancient civilization.\n\nPainted style and palette: The mural employs a traditional Chinese painting style, with a focus on line work and shading to create depth and dimension. The palette is limited, using earth tones, greens, and occasional accents of red and blue, which are typical of historical Chinese art.\n\nMask morphology: The binary mask reveals the areas where the mural is missing or obscured. The mask shows a complex, irregular pattern with numerous small and large gaps, indicating that the mural has significant damage or wear. The gaps are scattered throughout the image, with"
+  },
+  "562": {
+    "image_id": "562",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/562_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/562_mask.jpg",
+    "final_prompt": "Visible content: The mural features intricate designs with a central figure that appears to be a pagoda or temple structure, surrounded by swirling patterns and possibly human figures. The color palette includes muted earth tones, with accents of green and red.\n\nPainted style and palette: The mural exhibits a traditional East Asian style, characterized by its use of muted colors and detailed, symmetrical patterns. The palette is limited, focusing on earthy tones with occasional vibrant accents.\n\nMask morphology: The binary mask shows a complex, organic pattern with numerous branches and tendrils, indicating that the missing areas are not uniform but rather follow a natural, irregular shape."
+  },
+  "563": {
+    "image_id": "563",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/563_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/563_mask.jpg",
+    "final_prompt": "Visible content: The mural features intricate designs with a blend of green, brown, and beige hues, depicting what appears to be a religious or mythological scene. The image shows signs of wear and age, with some areas appearing faded or damaged.\n\nPainted style and palette: The mural employs a traditional East Asian artistic style, characterized by its use of muted earth tones and detailed, symbolic imagery. The palette includes shades of green, brown, and beige, which are common in Dunhuang murals, reflecting the natural and spiritual elements often depicted in these artworks.\n\nMask morphology: The binary mask reveals the areas that are missing or obscured in the mural. The mask is irregular, with a complex, organic shape that closely follows the contours of the mural's missing sections. The mask's black areas correspond"
+  },
+  "564": {
+    "image_id": "564",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/564_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/564_mask.jpg",
+    "final_prompt": "Visible content: The mural depicts a figure with a halo, wearing a robe, and holding a staff. The figure's face is partially obscured by the mask.\nPainted style and palette: The mural uses a muted color palette with earth tones, greens, and blues. The style is traditional, with fine lines and detailed rendering.\nMask morphology: The mask is irregular, with a complex, organic shape that covers a significant portion of the mural, leaving only the figure's halo and robes visible."
+  },
+  "565": {
+    "image_id": "565",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/565_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/565_mask.jpg",
+    "final_prompt": "Visible content: The mural depicts a scene with figures, possibly from a historical or religious context, with elements such as a person in a robe, a lamp, and a structure that resembles a building or temple. The figures are rendered in a muted palette with earthy tones and subtle details.\n\nPainted style and palette: The mural is painted in a traditional style, likely from the Dunhuang Caves, characterized by its use of muted earth tones and a somewhat monochromatic color scheme. The figures are depicted with simple, yet expressive lines and minimalistic details.\n\nMask morphology: The binary mask shows a complex, irregular pattern of black and white pixels, indicating the areas where the mural is missing or obscured. The black areas correspond to the masked regions, while the white areas represent the visible parts"
+  },
+  "566": {
+    "image_id": "566",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/566_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/566_mask.jpg",
+    "final_prompt": "Visible content: The mural features a scene with figures and architectural elements, rendered in a muted palette of earth tones and soft greens. The figures appear to be in motion, with dynamic poses suggesting a narrative or religious scene. The architectural elements include columns and a structure with a curved roof.\n\nPainted style and palette: The mural employs a traditional Dunhuang style, characterized by its use of muted, natural colors and a focus on line work to define forms. The palette is limited, with a dominance of earthy tones such as browns, greens, and beiges, which are typical of Dunhuang art.\n\nMask morphology: The binary mask reveals the areas where the mural is missing or obscured. The mask shows a complex, irregular pattern of black pixels, indicating the extent of the damage or"
+  },
+  "567": {
+    "image_id": "567",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/567_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/567_mask.jpg",
+    "final_prompt": "Visible content: The mural features a combination of green, brown, and black colors, with a pattern that includes vertical lines and floral motifs. The mural appears to be aged, with some areas showing signs of wear and tear.\n\nPainted style and palette: The mural has a traditional style, likely from the Dunhuang region, characterized by its use of earthy tones and intricate patterns. The palette includes muted greens, browns, and blacks, which are typical of historical murals.\n\nMask morphology: The binary mask shows a complex, irregular pattern with numerous black areas, indicating missing or obscured parts of the mural. The mask is dense and covers a significant portion of the image, suggesting that the mural has extensive damage or restoration needs."
+  },
+  "568": {
+    "image_id": "568",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/568_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/568_mask.jpg",
+    "final_prompt": "Visible content: The mural depicts a figure in traditional attire, possibly a musician, seated on a platform with a stringed instrument. The background includes architectural elements and a landscape with trees and mountains.\n\nPainted style and palette: The mural uses a muted color palette with earth tones, primarily greens, browns, and blacks. The style is reminiscent of traditional Chinese or East Asian art, with a focus on line work and minimalistic detail.\n\nMask morphology: The binary mask shows a large, irregularly shaped area of missing content, covering most of the mural's central and right sections. The mask also includes smaller, scattered areas of missing content on the left and bottom edges of the image."
+  },
+  "569": {
+    "image_id": "569",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/569_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/569_mask.jpg",
+    "final_prompt": "Visible content: The mural features intricate designs with circular patterns and floral motifs, primarily in shades of green, brown, and black. The designs are symmetrical and have a sense of depth, with some areas appearing more worn or faded.\n\nPainted style and palette: The mural employs a traditional style with a limited color palette, focusing on earthy tones and natural hues. The use of symmetry and detailed patterns suggests a high level of craftsmanship and attention to detail.\n\nMask morphology: The binary mask shows a complex, organic shape with numerous branches and tendrils. The mask covers a significant portion of the mural, indicating that the missing areas are extensive and varied in shape."
+  },
+  "570": {
+    "image_id": "570",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/570_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/570_mask.jpg",
+    "final_prompt": "Visible content: The mural depicts a scene with two figures, one seated and one standing, surrounded by abstract shapes and geometric patterns. The figures are rendered in a muted palette of earth tones, with the seated figure wearing a robe and the standing figure in a tunic. The background features a grid-like structure and a large, dark shape.\n\nPainted style and palette: The mural is executed in a traditional Dunhuang style, characterized by its use of muted earth tones and abstract forms. The figures are depicted with simple, stylized lines and minimal detail, typical of Dunhuang art.\n\nMask morphology: The binary mask shows that the majority of the mural is visible, with some areas obscured by the mask. The masked areas are irregularly shaped, with some larger sections of the mural remaining visible"
+  },
+  "571": {
+    "image_id": "571",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/571_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/571_mask.jpg",
+    "final_prompt": "Visible content: The mural depicts a figure in traditional attire, possibly a monk or a sage, seated on a bench with a bowl and a staff. The background is a gradient of green and blue, with some areas showing signs of wear and tear.\n\nPainted style and palette: The mural is painted in a traditional style, with muted earth tones and a limited color palette. The figures are rendered with simple, yet expressive brushstrokes, and the background features a soft gradient.\n\nMask morphology: The binary mask shows a complex, irregular pattern of black and white pixels, indicating the areas that are missing or obscured in the mural. The black areas correspond to the masked regions, while the white areas represent the visible parts of the mural."
+  },
+  "572": {
+    "image_id": "572",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/572_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/572_mask.jpg",
+    "final_prompt": "Visible content: The mural depicts a figure with a serene expression, wearing a traditional robe, and holding a staff. The background features abstract patterns and a light green hue.\nPainted style and palette: The mural uses a muted color palette with earthy tones, primarily in shades of brown, beige, and light green. The style is intricate and detailed, with fine lines and shading to create depth and texture.\nMask morphology: The binary mask shows a complex, irregular pattern with numerous black pixels scattered throughout the image, indicating areas where the mural is missing or obscured. The mask has a high level of detail, with no clear shapes or forms."
+  },
+  "573": {
+    "image_id": "573",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/573_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/573_mask.jpg",
+    "final_prompt": "Visible content: The mural depicts a scene with a seated figure, possibly a monk or a sage, wearing a long robe and sitting on a bench. The figure is holding a scroll or a book. In front of the figure is a table with a stack of books or scrolls. The background shows a room with a door and a window, and the floor is tiled.\n\nPainted style and palette: The mural is painted in a traditional Chinese style, with muted earth tones and black outlines. The figures and objects are depicted with simple, stylized forms, typical of ancient Chinese art.\n\nMask morphology: The binary mask shows that the mural is mostly intact, with some missing areas around the edges and some scattered missing areas within the image. The missing areas are irregular in shape and size."
+  },
+  "574": {
+    "image_id": "574",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/574_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/574_mask.jpg",
+    "final_prompt": "Visible content: The mural depicts a seated figure with a halo, holding a staff, and a kneeling figure in front of them. The background is a simple, muted color palette with green and beige tones.\nPainted style and palette: The mural is painted in a traditional, possibly Eastern style, with a limited color palette that includes muted greens, beiges, and earth tones. The figures are rendered with simple, bold lines.\nMask morphology: The binary mask shows a pattern of irregular, black, disconnected shapes scattered across the image, indicating areas where the mural is missing or obscured."
+  },
+  "575": {
+    "image_id": "575",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/575_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/575_mask.jpg",
+    "final_prompt": "Visible content: The mural features intricate designs with a mix of black, brown, and green hues. The designs include circular patterns, possibly representing wheels or fans, and other geometric shapes. The overall style is reminiscent of traditional Chinese or East Asian art, with a focus on symmetry and repetition.\n\nPainted style and palette: The mural employs a limited color palette, primarily consisting of black, brown, and green. The use of these colors creates a sense of depth and contrast, highlighting the intricate details of the designs.\n\nMask morphology: The binary mask reveals the areas where the mural is missing or obscured. The mask shows a complex, organic pattern with numerous branches and tendrils, suggesting that the missing portions of the mural are scattered and not in a uniform pattern."
+  },
+  "576": {
+    "image_id": "576",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/576_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/576_mask.jpg",
+    "final_prompt": "Visible content: The mural features a figure with a simplified, abstract style, using muted colors such as greens, browns, and blacks. The figure appears to be seated, with a geometric, almost linear representation of the body and clothing.\n\nPainted style and palette: The mural employs a minimalist, almost Cubist approach, with a limited color palette that includes earth tones and muted greens. The lines are bold and stark, contrasting with the softer, more blended areas of the figure.\n\nMask morphology: The binary mask highlights the areas where the mural is missing, showing a pattern of irregular, organic shapes that do not align with the figure's form. These shapes are scattered across the image, indicating that the missing areas are not part of the original mural design."
+  },
+  "577": {
+    "image_id": "577",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/577_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/577_mask.jpg",
+    "final_prompt": "Visible content: The mural features intricate patterns with a mix of black, green, and brown colors, depicting swirling designs and possibly floral motifs.\n\nPainted style and palette: The mural has a traditional, possibly East Asian, painted style with a limited color palette that includes black, green, and brown. The designs are complex and symmetrical, suggesting a high level of craftsmanship.\n\nMask morphology: The binary mask shows a complex, organic shape with numerous branches and tendrils, indicating that the masked area is highly detailed and possibly contains fine patterns or textures."
+  },
+  "578": {
+    "image_id": "578",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/578_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/578_mask.jpg",
+    "final_prompt": "Visible content: The mural features abstract, circular shapes with black outlines and a mix of light and dark green interiors. The background is a muted beige, and there are some areas where the paint is chipped or missing, revealing the underlying surface.\n\nPainted style and palette: The mural employs a minimalist, abstract style with a limited color palette that includes shades of green, black, and beige. The use of black outlines gives the shapes a defined and bold appearance.\n\nMask morphology: The binary mask shows the areas where the mural is visible (white) and the areas where the mural is missing (black). The mask reveals that the mural is incomplete, with significant portions missing, particularly in the upper and lower left corners."
+  },
+  "579": {
+    "image_id": "579",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/579_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/579_mask.jpg",
+    "final_prompt": "Visible content: The mural features abstract forms with muted colors, including a greenish-blue area and a brownish-orange shape. The background is a mix of beige and brown tones.\n\nPainted style and palette: The mural has a muted, earthy color palette with soft, blended strokes. The style is abstract, with no clear representation of objects or figures.\n\nMask morphology: The binary mask shows large areas of missing content, particularly in the upper left and lower right corners, with some scattered missing areas in the middle."
+  },
+  "580": {
+    "image_id": "580",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/580_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/580_mask.jpg",
+    "final_prompt": "Visible content: The mural features circular figures with black outlines and green and brown accents, set against a beige background with some brown and green elements.\n\nPainted style and palette: The mural employs a simple yet striking style with a limited color palette, primarily using black outlines, green, brown, and beige tones. The figures are stylized with minimal detail, giving the artwork a timeless and somewhat abstract appearance.\n\nMask morphology: The binary mask reveals the areas where the mural is missing, with a complex, irregular pattern of black pixels scattered across the image. The mask does not follow a uniform shape or pattern, indicating that the missing areas are not part of a single, continuous region."
+  },
+  "581": {
+    "image_id": "581",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/581_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/581_mask.jpg",
+    "final_prompt": "Visible content: The mural features abstract, swirling lines and shapes in muted colors, with a mix of black, brown, and green hues. The background is a light beige or off-white, creating a soft contrast with the darker lines.\n\nPainted style and palette: The mural has a traditional, possibly East Asian, painted style with a limited color palette. The use of black lines and muted colors suggests a focus on form and movement rather than vibrant, modern colors.\n\nMask morphology: The binary mask shows large, irregularly shaped black areas, indicating significant portions of the mural are missing or obscured. The missing areas are scattered across the image, with some larger gaps and others more localized."
+  },
+  "582": {
+    "image_id": "582",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/582_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/582_mask.jpg",
+    "final_prompt": "Visible content: A mural depicting a figure with a halo, wearing a robe, and adorned with a necklace, set against a greenish background with a ladder in the background.\nPainted style and palette: The mural is in a traditional style, with muted colors, primarily using shades of green, brown, and black. The style is reminiscent of ancient Chinese or Buddhist art.\nMask morphology: The binary mask shows a complex, irregular pattern with various shapes and sizes, indicating the areas where the mural is missing or obscured."
+  },
+  "583": {
+    "image_id": "583",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/583_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/583_mask.jpg",
+    "final_prompt": "Visible content: The mural depicts a scene with architectural elements, possibly a building or a structure, and some human figures. The scene is rendered in a muted palette with earthy tones, including browns, greens, and muted reds. The architectural elements are outlined in a reddish-brown color, while the human figures are depicted in darker shades, possibly black or dark brown. The overall style is reminiscent of traditional or historical art, with a focus on line work and minimalistic detail.\n\nPainted style and palette: The mural is painted in a traditional style, characterized by its use of simple lines and muted colors. The palette is limited, with a focus on earthy tones such as browns, greens, and muted reds. The style is reminiscent of historical or traditional art, with"
+  },
+  "584": {
+    "image_id": "584",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/584_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/584_mask.jpg",
+    "final_prompt": "Visible content: The mural depicts a scene with a structure resembling a pavilion or a temple, surrounded by trees and a figure in traditional attire. The color palette includes muted greens, browns, and blacks. The style is reminiscent of traditional Chinese painting, with a focus on line work and minimalistic detail.\n\nPainted style and palette: Traditional Chinese painting style, characterized by muted colors and line work. The palette includes greens, browns, and blacks.\n\nMask morphology: The binary mask shows a complex, irregular pattern with numerous branches and tendrils, indicating the areas where the mural is missing or obscured."
+  },
+  "585": {
+    "image_id": "585",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/585_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/585_mask.jpg",
+    "final_prompt": "Visible content: The mural depicts a scene with figures and foliage, rendered in muted earth tones with black outlines. The figures appear to be in a procession or group, with flowing robes and stylized hair. The foliage is sparse, with a few leaves and branches.\n\nPainted style and palette: The mural is characterized by a muted color palette, primarily using shades of green, brown, and black. The figures are outlined in black, creating a stark contrast against the lighter background. The style is reminiscent of traditional East Asian art, with a focus on line work and symbolic representation.\n\nMask morphology: The binary mask shows a complex, irregular pattern of black and white pixels. The black areas correspond to the missing or obscured parts of the mural, while the white areas indicate the known or visible parts. The"
+  },
+  "586": {
+    "image_id": "586",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/586_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/586_mask.jpg",
+    "final_prompt": "Visible content: The mural depicts two seated figures in traditional attire, with a greenish background and black and white clothing. The figures are adorned with intricate patterns and have a serene expression. The mural shows signs of wear and age, with some areas appearing faded or damaged.\n\nPainted style and palette: The mural is painted in a traditional style, with a limited color palette that includes shades of green, black, white, and brown. The figures are depicted with simple, yet elegant lines and patterns, characteristic of classical art.\n\nMask morphology: The binary mask reveals the areas that are missing or obscured in the mural. The mask shows irregular, organic shapes that correspond to the missing portions of the mural, indicating that the damage is not uniform and varies in size and shape."
+  },
+  "587": {
+    "image_id": "587",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/587_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/587_mask.jpg",
+    "final_prompt": "Visible content: The mural features a circular design with intricate patterns, including a central figure surrounded by decorative elements. The color palette includes shades of green, brown, and black, with some areas appearing faded or damaged.\n\nPainted style and palette: The mural exhibits a traditional style with a focus on geometric and floral motifs. The use of earthy tones and the presence of wear suggest an ancient or historical context.\n\nMask morphology: The binary mask shows a complex, organic shape with numerous branches and tendrils, indicating the presence of missing or obscured content in the mural."
+  },
+  "588": {
+    "image_id": "588",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/588_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/588_mask.jpg",
+    "final_prompt": "Visible content: The mural depicts a figure with a halo, wearing a robe with intricate patterns, surrounded by green and blue elements. The figure's hands are raised, and there are black spots on the robe. The background is a mix of green and brown hues.\n\nPainted style and palette: The mural uses a traditional Dunhuang style with muted earth tones, primarily greens, blues, and browns. The figures are depicted with simple, yet expressive lines, and the use of black spots adds a unique texture to the robe.\n\nMask morphology: The binary mask shows a complex, irregular pattern with a high degree of detail, indicating that the missing areas are highly varied and not uniform. The mask covers a significant portion of the mural, leaving only the central figure and some surrounding elements visible."
+  },
+  "589": {
+    "image_id": "589",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/589_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/589_mask.jpg",
+    "final_prompt": "Visible content: The mural features geometric shapes, including circles and stars, with a muted color palette of greens, browns, and blacks. The style is reminiscent of traditional Eastern art, with a focus on symmetry and repetition.\n\nPainted style and palette: The mural employs a limited color scheme, primarily using earth tones and muted greens, creating a serene and harmonious visual effect. The geometric patterns are outlined with black, providing a stark contrast against the lighter background.\n\nMask morphology: The binary mask highlights the areas where the mural is missing, revealing a chaotic and irregular pattern of black pixels scattered across the image. The mask does not follow any discernible shape or pattern, indicating that the missing areas are random and not part of a larger, coherent design."
+  },
+  "590": {
+    "image_id": "590",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/590_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/590_mask.jpg",
+    "final_prompt": "Visible content: The mural depicts a figure with a green robe and a white garment, sitting in a meditative pose with a black headpiece. The figure is seated on a green platform with a black line indicating the edge. The background is a light brown color with some green and black elements.\n\nPainted style and palette: The mural is painted in a traditional style with muted colors, primarily using shades of green, brown, and black. The brushwork is visible, with some areas showing signs of wear and tear.\n\nMask morphology: The binary mask shows that the figure and the platform are mostly visible, with some parts of the figure and the platform obscured by the mask. The background is mostly visible, with some parts obscured by the mask."
+  },
+  "591": {
+    "image_id": "591",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/591_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/591_mask.jpg",
+    "final_prompt": "Visible content: The mural features a scene with figures and elements in muted colors, including green, brown, and black. The figures appear to be in a traditional or historical setting, possibly depicting a narrative or religious scene.\n\nPainted style and palette: The mural has a traditional, possibly Eastern, painted style with a limited palette of muted colors. The figures are rendered with simple, flowing lines and minimal detail, typical of ancient or medieval art.\n\nMask morphology: The binary mask shows a complex, irregular pattern of black and white pixels. The black areas correspond to the missing parts of the mural, while the white areas indicate the known parts. The mask has a fractal-like appearance with numerous branches and no clear boundaries."
+  },
+  "592": {
+    "image_id": "592",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/592_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/592_mask.jpg",
+    "final_prompt": "Visible content: The mural features a circular design with intricate patterns, surrounded by abstract shapes and figures. The color palette includes shades of green, brown, and black. The mural appears to be part of a larger scene, possibly depicting a celestial or mythological theme.\n\nPainted style and palette: The mural exhibits a traditional Chinese painting style, characterized by its use of bold lines and a limited color palette. The green and brown hues suggest the use of natural pigments, while the black lines add depth and contrast.\n\nMask morphology: The binary mask shows a complex, organic pattern with numerous branches and tendrils. The mask is irregular and does not follow a specific shape, indicating that it is designed to cover the entire mural."
+  },
+  "593": {
+    "image_id": "593",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/593_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/593_mask.jpg",
+    "final_prompt": "Visible content: The mural features a figure with a large, round face, wearing a headdress with intricate patterns, and a garment with a floral design. The figure's hands are raised, and the background is a muted green with some red accents.\n\nPainted style and palette: The mural employs a muted color palette with shades of green, red, and black. The style is characterized by bold, simplified forms and a lack of fine detail, typical of ancient Chinese art.\n\nMask morphology: The mask is irregular, with a complex, organic shape that closely follows the contours of the mural. It is composed of numerous small, interconnected black pixels, indicating the areas where the mural is missing or damaged."
+  },
+  "594": {
+    "image_id": "594",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/594_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/594_mask.jpg",
+    "final_prompt": "Visible content: The mural features a complex design with a central figure surrounded by intricate patterns and symbols. The color palette includes muted tones of brown, green, and black, with occasional accents of white and blue. The painted style is reminiscent of traditional East Asian art, with a focus on line work and symbolic representation.\n\nPainted style and palette: The mural employs a traditional East Asian artistic style, characterized by its use of line work and symbolic motifs. The color palette is muted, with a dominance of earthy tones and occasional use of vibrant colors like green and blue.\n\nMask morphology: The binary mask shows a pattern of black and white pixels, with the black areas indicating the missing portions of the mural. The mask is irregular, with no discernible shape or pattern, suggesting that the missing areas are"
+  },
+  "595": {
+    "image_id": "595",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/595_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/595_mask.jpg",
+    "final_prompt": "Visible content: The mural features intricate designs with a mix of black, brown, and green hues. The designs include circular patterns and abstract shapes, with a prominent circular motif in the center.\n\nPainted style and palette: The mural employs a traditional style with a limited color palette, primarily consisting of black, brown, and green. The use of these colors creates a sense of depth and texture.\n\nMask morphology: The binary mask shows a complex, irregular pattern with numerous black pixels scattered throughout the image. The black pixels represent the areas where the mural content is missing or obscured."
+  },
+  "596": {
+    "image_id": "596",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/596_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/596_mask.jpg",
+    "final_prompt": "Visible content: The mural depicts a figure with a halo, wearing a robe with a green and brown pattern, and holding a staff. The background features circular patterns and other figures.\n\nPainted style and palette: The mural uses a muted color palette with earthy tones, primarily greens, browns, and grays. The style is reminiscent of traditional Dunhuang art, with flat, solid colors and minimal shading.\n\nMask morphology: The binary mask shows a complex, irregular pattern of black and white pixels, with the black areas indicating the missing parts of the mural. The mask is dense and covers a significant portion of the image, particularly around the central figure and the background."
+  },
+  "597": {
+    "image_id": "597",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/597_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/597_mask.jpg",
+    "final_prompt": "Visible content: The mural features a traditional architectural structure with intricate details, including a roof with eaves, columns, and decorative elements. The color palette includes muted earth tones, with green and brown accents. The painted style is reminiscent of ancient Chinese or East Asian art, with a focus on symmetry and geometric patterns.\n\nPainted style and palette: The mural employs a muted color palette, primarily using earth tones such as browns, greens, and grays. The style is traditional and symmetrical, with intricate details and geometric patterns.\n\nMask morphology: The binary mask shows a complex, irregular pattern with a high degree of detail, indicating that the missing areas are highly varied and not uniform. The mask is dense with black areas, suggesting that the missing content is not easily predictable."
+  },
+  "598": {
+    "image_id": "598",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/598_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/598_mask.jpg",
+    "final_prompt": "Visible content: The mural features intricate designs with a mix of muted colors, including shades of green, brown, and gray. The designs appear to be floral or vegetative in nature, with some elements resembling leaves or branches.\n\nPainted style and palette: The mural has a traditional, possibly East Asian, painted style with a limited color palette. The use of muted colors and the intricate detailing suggest a historical or cultural significance.\n\nMask morphology: The binary mask shows a complex, organic pattern that closely follows the contours of the mural, indicating that the missing areas are primarily in the center and upper parts of the image. The mask is detailed, with many small black pixels that outline the shapes of the mural's designs."
+  },
+  "599": {
+    "image_id": "599",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/599_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/599_mask.jpg",
+    "final_prompt": "Visible content: The mural depicts a structure with a roof and columns, surrounded by green and brown elements, possibly plants or foliage. The style is traditional, with bold black outlines and muted colors. The mask morphology shows a complex, irregular pattern, indicating missing or obscured areas."
+  },
+  "600": {
+    "image_id": "600",
+    "masked_image": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_masked/600_masked.jpg",
+    "mask": "/root/autodl-tmp/data/mural/DUNHUANG/test/test_mask/600_mask.jpg",
+    "final_prompt": "Visible content: The mural depicts a figure with a red garment and a yellow background, with some parts of the mural missing or damaged.\n\nPainted style and palette: The mural uses a muted color palette, primarily featuring shades of red, yellow, and brown. The style appears to be traditional, with a focus on line work and minimalistic detail.\n\nMask morphology: The binary mask shows a pattern of white and black pixels, with white indicating the known parts of the mural and black indicating the missing or damaged parts. The mask is irregular, with some areas of the mural completely missing and others partially visible."
+  }
+}
