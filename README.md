@@ -22,19 +22,19 @@
 
 二值掩膜 `M` 的取值约定为 **1 = 已知区域，0 = 缺失区域**。设 `x_0` 为完整参考图像，则缺失图 `H` 与输入条件图 `μ` 定义为：
 
-```math
+$$
 H = 1-M,\qquad \mu=M\odot x_0
-```
+$$
 
 结构条件由掩膜后可见信息构造：
 
-```math
+$$
 G_{\mu}=M\odot\Phi_{\mathrm{gray}}(\mu)
-```
+$$
 
-```math
+$$
 E_{\mu}=M\odot\Phi_{\mathrm{edge}}(G_{\mu}),\qquad S=\mathrm{Concat}(G_{\mu},E_{\mu})
-```
+$$
 
 ### 1.3 可见证据文本提示
 
@@ -63,34 +63,42 @@ Produce the description in the required three-field format.
 
 `Mask morphology` 仅作为辅助语义上下文；像素级缺失几何、已知侧边界和残差路由均由二值掩膜确定。冻结 CLIP 编码样本提示：
 
-```math
+$$
 C_p=E_{\mathrm{text}}(P)\in\mathbb{R}^{B\times77\times768}
-```
+$$
 
 
-**已公开的测试提示文件：** [`DUNHUANG_test_prompts.json`](DUNHUANG_test_prompts.json)。该文件按图像ID保存测试集 **501–600** 的100条记录，每条包含 `image_id`、`masked_image`、`mask` 和 `final_prompt`；提示文本采用 `Visible content`、`Painted style and palette`、`Mask morphology` 三个字段，与上面的模板一致。
+**公开的 Prompt 清单（按当前公开仓库文件名）：**
 
-JSON中的 `/root/autodl-tmp/...` 是生成时的原始机器路径，复现时应按 `image_id` 将其映射到用户本地Dunhuang图像及掩膜目录；这些路径不是下载地址。测试提示文件只覆盖100张测试图像，不应据此声称已经发布500张训练图像的最终Prompt版本。
+| 文件 | 记录范围 | 已核实字段 | 用途 |
+|---|---:|---|---|
+| [`DUNHUANG_train_prompts.json`](DUNHUANG_train_prompts.json) | `001–500`，500 条 | `image_id`, `masked_image`, `mask`, `final_prompt` | Dunhuang 训练 Prompt 记录 |
+| [`DUNHUANG_test_prompts.json`](DUNHUANG_test_prompts.json) | `501–600`，100 条 | `image_id`, `masked_image`, `mask`, `final_prompt` | Dunhuang 独立测试 Prompt 记录 |
+| [`MuralDH_test_prompts.json`](MuralDH_test_prompts.json) | `MuralDH_0001–MuralDH_0201`，201 条 | `image_id`, `masked_image`, `final_prompt` | MuralDH 受控评价的 Prompt 记录 |
+
+三个 JSON 文件均使用以记录 ID 为键的对象结构。`final_prompt` 预期包含 `Visible content`、`Painted style and palette`、`Mask morphology` 三个字段，但**不能仅根据固定模板就断言每条生成文本均符合模板**：公开的 Dunhuang 测试记录 `599` 目前仍缺少后两个独立字段标题。建议根据实际实验日志进行全量审计；若需修订 Prompt，请保存旧版本和新版本，并明确论文所用版本，避免事后修改影响实验可追溯性。
+
+JSON 中的 `/root/autodl-tmp/...` 为提示生成环境的历史本地路径，不是下载地址。复现时须使用 `image_id` 和固定输入清单将路径映射到本机数据；`MuralDH_test_prompts.json` 本身不含 `mask` 字段，**不能替代 201 组参考图像—损伤掩膜的原始 ID 配对清单**。
 
 ### 1.4 多尺度残差路由
 
 令 `k_r` 为路由边界所用的奇数大小方形膨胀核。已知侧边界定义为：
 
-```math
+$$
 B_{\mathrm{route}}^{(k_r)}=\mathrm{Dilate}_{k_r}(H)-H
-```
+$$
 
 在第 `s` 个特征尺度上，缺失图及边界图通过最近邻插值缩放，构造残差门控：
 
-```math
+$$
 R_s^{(k_r)}(M)=\mathrm{clip}\bigl(\mathrm{Resize}_s(H)+\mathrm{Resize}_s(B_{\mathrm{route}}^{(k_r)}),0,1\bigr)
-```
+$$
 
 Prompt Adapter 生成的尺度专属残差通过门控注入 U-Net：
 
-```math
+$$
 h'_s=h_s+R_s^{(k_r)}(M)\odot r_p^{(s)}
-```
+$$
 
 `k_r = 1` 对应 hole-only routing，最终采用 `k_r = 5` 的 hole + known-side boundary routing。
 
@@ -98,23 +106,23 @@ h'_s=h_s+R_s^{(k_r)}(M)\odot r_p^{(s)}
 
 监督边界由独立的膨胀核构造：
 
-```math
+$$
 B_{\mathrm{sup}}=\mathrm{Dilate}_{k_{\mathrm{sup}}}(H)-H,\qquad k_{\mathrm{sup}}=5
-```
+$$
 
 Prompt Adapter 使用缺失区域损失和边界区域损失联合优化：
 
-```math
+$$
 \mathcal{L}=\mathcal{L}_{\mathrm{hole}}+2\mathcal{L}_{\mathrm{boundary}}
-```
+$$
 
-```math
+$$
 \mathcal{L}_{\mathrm{hole}}=\frac{\|H\odot(\hat{x}_{t-1}-x^*_{t-1})\|_1}{\|H\|_1+\epsilon}
-```
+$$
 
-```math
+$$
 \mathcal{L}_{\mathrm{boundary}}=\frac{\|B_{\mathrm{sup}}\odot(\hat{x}_{t-1}-x^*_{t-1})\|_1}{\|B_{\mathrm{sup}}\|_1+\epsilon}
-```
+$$
 
 其中 `x*_{t-1}` 为由 StrDiffusion 随机过程及离散化确定的解析监督目标，`ε` 为数值稳定项。
 
@@ -207,17 +215,21 @@ Prompt Adapter 使用缺失区域损失和边界区域损失联合优化：
 Get-FileHash "D:\desktop\data\pth.zip" -Algorithm SHA256
 ```
 
-### 3.3 Prompt与图像–掩膜记录版本
+### 3.3 Prompt、图像—掩膜和实验版本追溯
 
-| 实验材料 | 当前可核查资源 | 复现时的用途 |
+| 材料 | 公开入口或核验依据 | 复现注意事项 |
 |---|---|---|
-| Dunhuang测试Prompt | [`DUNHUANG_test_prompts.json`](DUNHUANG_test_prompts.json) | 按ID提供501–600测试记录、mask路径和`final_prompt` |
-| 模型源代码 | [`selected_package/selected_package`](selected_package/selected_package) | 公开的代码目录；具体运行命令以其实际脚本入口为准 |
-| 201组MuralDH配对 | 固定ID清单与协议记录（需与原实验日志核对） | 记录参考图、mask、采样种子42及排序映射 |
-| 官方初始模型及训练后权重 | 上游模型仓库、作者提供的`pth.zip` | 区分各基线的预训练起点与最终微调检查点 |
-| 运行配置及逐图结果 | 各次训练/推理/评价配置与输出 | 将报告的表格指标追溯到确切运行记录 |
+| Dunhuang 训练 Prompt | [`DUNHUANG_train_prompts.json`](DUNHUANG_train_prompts.json) | 记录 001–500；须核对是否与报告结果所用快照一致 |
+| Dunhuang 测试 Prompt | [`DUNHUANG_test_prompts.json`](DUNHUANG_test_prompts.json) | 记录 501–600；应对三字段格式逐条审计 |
+| MuralDH 评价 Prompt | [`MuralDH_test_prompts.json`](MuralDH_test_prompts.json) | 记录 `MuralDH_0001–MuralDH_0201`；须与固定配对清单建立映射 |
+| 开源代码及配置入口 | [`selected_package/selected_package`](selected_package/selected_package) | 以实际发布脚本及路径为准；请锁定仓库 commit |
+| 201 组 MuralDH 真实损伤掩膜配对 | 固定 image–mask manifest / pairing CSV（以实验原始记录为准） | 应给出原始 `reference_id`、`mask_id`、合成记录 ID 和 SHA-256 |
+| 初始及最终模型权重 | 各基线官方项目，以及下述作者权重归档 | 区分官方初始权重、目标域微调权重及最终模型 |
+| 逐图指标与实验配置 | 对应训练、推理和评价的实际运行输出 | 按运行 ID 对应论文每一表格，未核验时勿声称可独立复算 |
 
-为了对应论文中的每项结果，建议以 `run_id` 关联 `initial_checkpoint`、`final_checkpoint`、`prompt_version`、`image_mask_manifest`、`training_config`、`inference_config`、`evaluation_script` 和 `per_image_metrics.csv`。当前公开的**测试Prompt JSON不等于训练Prompt清单**；应根据实际训练记录补全其余版本信息。
+建议对论文中每一个结果设置唯一 `run_id`，并记录 `git_commit`、`initial_checkpoint`、`final_checkpoint`、`prompt_file`、`prompt_sha256`、`image_mask_manifest`、`config`、`seed`、`evaluation_script`、`per_image_metrics.csv`。目前能公开访问三份 Prompt JSON 与项目源码入口，但**是否有逐实验一一对应的运行证据**，仍需依照真实目录和实验日志核对，不能以“代码已公开”替代核验。
+
+**两套 MuralDH 流程须严格区分：**（1）在完整参考图上施加独立来源的 201 个真实损伤掩膜，用于受控参考式定量评价；（2）对原始受损壁画输出做无参考质量描述。两者的输入 ID、掩膜和可支持的结论不同，不能混用。
 
 ## 4. 评价指标
 
@@ -225,13 +237,13 @@ Get-FileHash "D:\desktop\data\pth.zip" -Algorithm SHA256
 
 将 RGB 图像归一化至 `[0,1]`。G-PSNR 基于完整图像计算，H-PSNR 基于缺失区域计算：
 
-```math
+$$
 \mathrm{MSE}_{H}=\frac{\sum_p H(p)\sum_{c=1}^{3}(x_c(p)-\hat{x}_c(p))^2}{3\sum_p H(p)}
-```
+$$
 
-```math
+$$
 \mathrm{H\!-\!PSNR}=10\log_{10}\frac{1}{\mathrm{MSE}_{H}}
-```
+$$
 
 ### 4.2 G-SSIM 与 H-SSIM
 
@@ -251,13 +263,13 @@ structural_similarity(
 
 G-SSIM 为三个通道全图 SSIM 标量的平均；H-SSIM 使用完整局部 SSIM 图，并在缺失区域中心位置取均值：
 
-```math
+$$
 \bar{s}(p)=\frac{1}{3}\sum_{c=1}^{3}s_c(p)
-```
+$$
 
-```math
+$$
 \mathrm{H\!-\!SSIM}=\frac{\sum_p H(p)\bar{s}(p)}{\sum_p H(p)}
-```
+$$
 
 局部窗口的统计量按完整邻域计算；H-SSIM 仅通过 `H` 选择计入平均的窗口中心。G-SSIM 的标量结果不计入图像外侧三个像素的边界，H-SSIM 使用完整局部图。
 
@@ -269,9 +281,9 @@ G-SSIM 为三个通道全图 SSIM 标量的平均；H-SSIM 使用完整局部 SS
 
 已知侧评价边界：
 
-```math
+$$
 B_{\mathrm{eval}}=\mathrm{Dilate}_{k_{\mathrm{eval}}}(H)-H,\qquad k_{\mathrm{eval}}=5
-```
+$$
 
 | 设置 | 取值 |
 |---|---|
@@ -285,9 +297,9 @@ B_{\mathrm{eval}}=\mathrm{Dilate}_{k_{\mathrm{eval}}}(H)-H,\qquad k_{\mathrm{eva
 
 双向边缘匹配计算 precision `P` 与 recall `R`，KB-F1 定义为：
 
-```math
+$$
 \mathrm{KB\!-\!F1}=\frac{2PR}{P+R}
-```
+$$
 
 当 `P+R=0` 时，KB-F1 定义为 `0`。
 
@@ -315,6 +327,8 @@ evaluation_inputs/
 ```
 
 预测图、参考图及掩膜通过标准化文件名配对。RGB 图像使用 OpenCV `INTER_AREA` 缩放至 `256 × 256`，掩膜使用 `INTER_NEAREST`。默认白色表示已知区域，即 `--mask-convention known_white`。
+
+下面的命令假设已经进入实际评价脚本所在目录；请先在公开源码中确认脚本路径和依赖版本，不要将此处的示例命令视为经过本次独立运行验证。
 
 ### 5.3 Dunhuang 独立测试
 
@@ -366,18 +380,28 @@ python eval_paired_predictions_paper_documented.py \
 
 ## 6. 数据与代码可用性
 
-| 资源 | 地址 |
+| 资源 | 公开地址 |
 |---|---|
-| 项目代码 | [Visible-evidence-guided](https://github.com/xinyu0833-bit/Visible-evidence-guided) |
-| 公开代码目录 | [`selected_package/selected_package`](selected_package/selected_package) |
-| Dunhuang测试Prompt（501–600） | [`DUNHUANG_test_prompts.json`](DUNHUANG_test_prompts.json) |
-| 模型权重 `pth.zip` | [百度网盘下载](https://pan.baidu.com/s/113nThaxCpMGW2wWnu2UJcw)，提取码 `mgi2` |
-| LaMa官方模型 | [advimman/lama](https://github.com/advimman/lama) |
-| StrDiffusion官方模型 | [htyjers/StrDiffusion](https://github.com/htyjers/StrDiffusion) |
-| PGRDiff官方模型 | [CZY-Code/PGRDiff](https://github.com/CZY-Code/PGRDiff) |
-| Dunhuang | [Official benchmark](https://www.cvl.iis.u-tokyo.ac.jp/e-Heritage2019/index.php?id=challenge) |
-| MuralDH | [Dataset repository](https://github.com/tearsheaven/MuralDH) |
-| MuralDH 相关划分 | [LABFNet](https://doi.org/10.3390/jimaging12070332) |
+| 项目仓库 | [Visible-evidence-guided](https://github.com/xinyu0833-bit/Visible-evidence-guided) |
+| 项目源码目录 | [`selected_package/selected_package`](selected_package/selected_package) |
+| Dunhuang 训练 Prompt | [`DUNHUANG_train_prompts.json`](DUNHUANG_train_prompts.json) |
+| Dunhuang 测试 Prompt | [`DUNHUANG_test_prompts.json`](DUNHUANG_test_prompts.json) |
+| MuralDH 受控评价 Prompt | [`MuralDH_test_prompts.json`](MuralDH_test_prompts.json) |
+| 作者发布的 `pth.zip` | [百度网盘](https://pan.baidu.com/s/113nThaxCpMGW2wWnu2UJcw)，提取码 `mgi2` |
+| LaMa 官方仓库 | [advimman/lama](https://github.com/advimman/lama) |
+| StrDiffusion 官方仓库 | [htyjers/StrDiffusion](https://github.com/htyjers/StrDiffusion) |
+| PGRDiff 官方仓库 | [CZY-Code/PGRDiff](https://github.com/CZY-Code/PGRDiff) |
+| Dunhuang 官方数据 | [Benchmark](https://www.cvl.iis.u-tokyo.ac.jp/e-Heritage2019/index.php?id=challenge) |
+| MuralDH 数据 | [Dataset repository](https://github.com/tearsheaven/MuralDH) |
 | muralv2 | [PGRDiff project](https://github.com/CZY-Code/PGRDiff) |
 
-已公开的代码目录、Dunhuang测试Prompt和权重归档链接如上。其余研究专用材料（例如训练Prompt版本、完整图像–掩膜运行记录、配置清单及逐图指标）应按实际公开情况进一步补充精确路径与版本；未发布的文件不应表述为已经公开。原始图像、掩膜与第三方权重的使用和再分发遵循相应许可。
+仓库目前列出了训练/测试 Prompt JSON 与代码目录。代码公开与论文全部数值的独立复算是两项不同的要求：如需完全复现 Table 2–12，还应提供**对应原始运行的版本、精确模型权重映射、201 组配对清单、逐图评价结果和专家匿名评分/统计脚本**，并确保它们与论文中报告的实验一致。第三方图像、掩膜和模型权重应遵循原始数据许可。
+
+## 7. 结果汇总边界与修订核对
+
+- **Dunhuang 分组：** 100 张独立测试图像的缺损面积区间 `[0, 0.2)` 和 `[0.2, 0.4)` 分别包含 80、20 张，`≥0.4` 为 0 张；每幅图等权平均。由文中分组均值得到 PowerPaint 的 G-PSNR 为 `27.77554 dB`，RAD 为 `28.52526 dB`；这证明展示值的算术一致性，**不替代逐图指标核验**。
+- **专家一致性：** 30 个案例、三名独立专家、三维度 Likert 评分；论文采用基于案例级 Overall 的双向绝对一致性 `ICC(A,1)` 和 `ICC(A,3)`。最终统计需要能够从匿名原始评分重算，并给出 95% 置信区间的方法与代码。
+- **损伤类别边界：** 四个 `muralv2` 标签为本文二次整理的操作性掩膜分组，不构成经文保专家验证的完整病害分类。未系统测试盐析、褪色/变色、过往重绘、生物损害、水渍，以及复杂分支裂纹等类型；不应将结果外推到全部真实病害。
+- **MuralDH 解释边界：** 参考图与实际损伤标注并非同一物理壁画的损伤前后配对。受控指标只表征施加外部损伤几何后的参考图像重建一致性，不证明历史原貌或现场保护效果。
+- **版本锁定：** 在论文最终提交时记录仓库 commit、三个 Prompt 文件的 SHA-256，以及每张结果表关联的输入清单和模型权重。若 Prompt 发生更改，应说明数值来自哪个版本，而不是默认更新后 JSON 与此前实验自动一致。
+
