@@ -3,9 +3,8 @@
 ## Model weights
 
 - Released checkpoints (`pth.zip`): https://pan.baidu.com/s/113nThaxCpMGW2wWnu2UJcw (access code: `mgi2`)
-- LaMa pretrained weights: https://github.com/advimman/lama
-- StrDiffusion pretrained weights: https://github.com/htyjers/StrDiffusion
-- PGRDiff pretrained weights: https://github.com/CZY-Code/PGRDiff
+
+  
 
 ## Training
 
