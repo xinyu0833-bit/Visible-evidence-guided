@@ -2,17 +2,31 @@
 
 ## Model weights
 
+### Project-released checkpoints
+
 - Released checkpoints (`pth.zip`): https://pan.baidu.com/s/113nThaxCpMGW2wWnu2UJcw (access code: `mgi2`)
 
-  
+### Official starting weights for matched-training baselines
+
+LaMa, StrDiffusion and PGRDiff were **fine-tuned from officially released pretrained weights, not trained from scratch**, on the matched Dunhuang training records. The starting-weight variants actually used were:
+
+| Baseline | Official starting-weight variant | Official project |
+| --- | --- | --- |
+| LaMa | `big-lama` | [LaMa](https://github.com/advimman/lama) |
+| StrDiffusion | `PSV` pretrained weights | [StrDiffusion](https://github.com/htyjers/StrDiffusion) |
+| PGRDiff | `DUNHUANG` pretrained checkpoint | [PGRDiff](https://github.com/CZY-Code/PGRDiff) |
+
+These are the **initialization variants for the three fine-tuned baselines**; they should not be confused with the resulting fine-tuned checkpoints or with the frozen-backbone setup of the proposed method described in the manuscript.
 
 ## Training
+
+The training script is located at `dataset/train_new.py` under `selected_package/selected_package/`. Run the following command from that package directory; update local dataset and checkpoint paths in the YAML configuration before execution.
 
 ```bash
 git clone https://github.com/xinyu0833-bit/Visible-evidence-guided.git
 cd Visible-evidence-guided/selected_package/selected_package
 
-python train_new.py -opt options/train/train_dunhuang_final.yml --launcher none
+python dataset/train_new.py -opt options/train/train_dunhuang_final.yml --launcher none
 ```
 
 ## Testing (evaluation of saved predictions)
